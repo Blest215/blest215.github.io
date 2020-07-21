@@ -3,7 +3,6 @@ layout: single
 title: "CV"
 lang: ko
 ref: cv
-author: KyeongDeok Baek
 permalink: /ko/cv/
 ---
 Education

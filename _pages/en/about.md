@@ -3,7 +3,6 @@ layout: single
 title: "About"
 lang: en
 ref: about
-author: KyeongDeok Baek
 permalink: /en/about/
 ---
 Research blog of KyeongDeok Baek, as a Ph.D. candidate in Web Engineering Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST).

@@ -3,7 +3,6 @@ layout: single
 title: "About"
 lang: ko
 ref: about
-author: KyeongDeok Baek
 permalink: /ko/about/
 ---
 카이스트 전산학부 웹공학연구실 박사과정 백경덕의 연구 블로그입니다.

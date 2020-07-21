@@ -5,29 +5,3 @@ lang: ko
 ref: posts
 permalink: /ko/posts/
 ---
-
-
-{% for desc in site.descriptions %}
-	{% if site.categories[desc.cat].size > 0 %}
-		{% capture cat %}{{ desc.cat }}{% endcapture %}
-		<h2 id="{{ cat }}">{{ cat | capitalize }}</h2>
-
-		{% comment %}
-		<p class="desc"><em>{{ desc.desc }}</em></p>
-		{% endcomment %}
-
-		{% assign posts=site.categories[cat] | where:"lang", page.lang %}
-		<ul class="posts-list">
-		{% for post in posts %}
-			<li>
-				<span class="post-date">{{ post.date | date_to_long_string }}</span>
-				<strong>
-					<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-				</strong>
-			</li>
-		{% endfor %}
-		</ul>
-		{% if forloop.last == false %}<hr>{% endif %}
-	{% endif %}
-{% endfor %}
-<br>
