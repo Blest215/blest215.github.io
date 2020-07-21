@@ -73,7 +73,7 @@ body {
   line-height: 1;
 
   & + .page__meta {
-    margin-top: -0.5em;
+    margin-top: -0em;
   }
 }
 
@@ -83,6 +83,9 @@ body {
 }
 
 .page__content {
+  padding-top: 0.5em;
+  border-top: 1px solid $border-color;
+
   h2 {
     padding-bottom: 0.5em;
     border-bottom: 1px solid $border-color;
@@ -281,7 +284,7 @@ body {
 .page__meta {
   margin-top: 2em;
   color: $muted-text-color;
-  font-family: $sans-serif;
+  font-family: $global-font-family;
   font-size: $type-size-6;
 
   p {
