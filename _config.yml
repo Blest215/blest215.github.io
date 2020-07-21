@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "KyeongDeok Baek"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "카이스트 전산학부 웹공학연구실 박사과정<br>Ph.D. candidate in Web Engineering Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)"
+  bio              : "카이스트 전산학부 웹공학연구실 석박사통합과정<br>Ph.D. candidate in Web Engineering Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)"
   location         : "Daejeon, Republic of Korea"
   email            : # "blest215@kaist.ac.kr"
   links:
