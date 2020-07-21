@@ -1,12 +1,12 @@
 ---
-layout: page
+layout: posts
 title: "Posts"
 lang: en
 ref: posts
 permalink: /en/posts/
 ---
 
-
+{% comment %}
 {% for desc in site.descriptions %}
 	{% if site.categories[desc.cat].size > 0 %}
 		{% capture cat %}{{ desc.cat }}{% endcapture %}
@@ -31,3 +31,4 @@ permalink: /en/posts/
 	{% endif %}
 {% endfor %}
 <br>
+{% endcomment %}
