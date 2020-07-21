@@ -25,7 +25,7 @@ url                      : "https://blest215.github.io" # the base hostname & pr
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Blest215/blest215.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/bonfire.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/web.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : # "/assets/images/web.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -95,9 +95,9 @@ analytics:
 author:
   name             : "KyeongDeok Baek"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Ph.D. candidate in Web Engineering Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)"
-  location         : "Somewhere"
-  email            : "blest215@kaist.ac.kr"
+  bio              : "카이스트 전산학부 웹공학연구실 박사과정<br>Ph.D. candidate in Web Engineering Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)"
+  location         : "Daejeon, Republic of Korea"
+  email            : # "blest215@kaist.ac.kr"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"

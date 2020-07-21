@@ -29,9 +29,11 @@ $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
 
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 $global-font-family: $sans-serif !default;
-$header-font-family: $sans-serif !default;
-$caption-font-family: $serif !default;
+$header-font-family: $header-font-family !default; // $sans-serif !default;
+$caption-font-family: $header-font-family !default; // $serif !default;
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px
