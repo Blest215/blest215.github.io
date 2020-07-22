@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "About"
+description: "블로그 소개"
 lang: ko
 ref: about
 permalink: /ko/about/

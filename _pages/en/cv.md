@@ -1,15 +1,16 @@
 ---
 layout: single
 title: "CV"
+description: "Curriculum Vitae of KyeongDeok Baek"
 lang: en
 ref: cv
 permalink: /en/cv/
 ---
 Education
 ---
-- Daejeon Science High School, _Feb. 2010 - Feb. 2012_  
-- B.S. in School of Computing, KAIST (Korea Advanced Institute of Science and Technology), _Feb. 2012 - Feb. 2016_  
-- **Integrated Master's & Ph.D. Program** in School of Computing, KAIST (Korea Advanced Institute of Science and Technology), _Mar. 2012 -_  
+- _Feb. 2010 - Feb. 2012_ Daejeon Science High School  
+- _Feb. 2012 - Feb. 2016_ B.S. in School of Computing, KAIST (Korea Advanced Institute of Science and Technology)  
+- _Mar. 2012 -_ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Integrated Master's & Ph.D. Program** in School of Computing, KAIST (Korea Advanced Institute of Science and Technology)  
 
 Publications
 ---

@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "About"
+description: "introduction of this blog"
 lang: en
 ref: about
 permalink: /en/about/

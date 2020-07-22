@@ -1,15 +1,16 @@
 ---
 layout: single
 title: "CV"
+description: "백경덕의 Curriculum Vitae"
 lang: ko
 ref: cv
 permalink: /ko/cv/
 ---
 Education
 ---
-- 대전과학고등학교, _Feb. 2010 - Feb. 2012_  
-- KAIST (Korea Advanced Institute of Science and Technology) 전산학부 공학사, _Feb. 2012 - Feb. 2016_  
-- KAIST 전산학부 석박사통합과정, _Mar. 2012 -_  
+- _Feb. 2010 - Feb. 2012_ 대전과학고등학교  
+- _Feb. 2012 - Feb. 2016_ KAIST (Korea Advanced Institute of Science and Technology) 전산학부 공학사  
+- _Mar. 2012 -_ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KAIST 전산학부 **석박사통합과정**  
 
 Publications
 ---
