@@ -8,8 +8,8 @@
     {% for nav in navigation %}
       <li>
         {% if nav.url %}
-          {% capture url %}{{ page.lang }}{{ nav.url }}{% endcapture %}
-          <a href="{{ url | relative_url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
+          {% capture url %}{{ site.baseurl }}{{ nav.url }}{% endcapture %}
+          <a href="{{ url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
         {% else %}
           <span class="nav__sub-title">{{ nav.title }}</span>
         {% endif %}
@@ -17,8 +17,8 @@
         {% if nav.children != null %}
         <ul>
           {% for child in nav.children %}
-            {% capture url %}{{ page.lang }}{{ child.url }}{% endcapture %}
-            <li><a href="{{ url | relative_url }}"{% if url == page.url %} class="active"{% endif %}>{{ child.title }}</a></li>
+            {% capture url %}{{ site.baseurl }}{{ child.url }}{% endcapture %}
+            <li><a href="{{ url }}"{% if url == page.url %} class="active"{% endif %}>{{ child.title }}</a></li>
           {% endfor %}
         </ul>
         {% endif %}

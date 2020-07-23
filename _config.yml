@@ -15,12 +15,12 @@
 minimal_mistakes_skin    : "contrast" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "ko-KR"
+locale                   : "en-US"
 title                    : "Blest"
 title_separator          : "-"
-subtitle                 : "과학자가 되고싶었던 대학원생의 공학 연구 이야기"
+subtitle                 : "과학자가 되고 싶었던 대학원생의 공학 연구 이야기"
 name                     : "KyeongDeok Baek"
-description              : "과학자가 되고싶었던 대학원생의 공학 연구 이야기"
+description              : "과학자가 되고 싶었던 대학원생의 공학 연구 이야기"
 url                      : "https://blest215.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Blest215/blest215.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -68,6 +68,9 @@ bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
 
+# Multi-languages setting
+languages: ["en", "ko"]
+
 # Social Sharing
 twitter:
   username               :
@@ -93,10 +96,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "KyeongDeok Baek"
+  name             : "author.name"
   avatar           : "/assets/images/profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "카이스트 전산학부 웹공학연구실<br>석박사통합과정<br>Ph.D. candidate in <i>Web Engineering Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)</i>"
-  location         : "Daejeon, Republic of Korea"
+  bio              : "author.bio"
+  location         : "author.location"
   email            : "blest215@kaist.ac.kr"
   github           : "blest215"
   linkedin         : "blest215"
@@ -229,6 +232,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-archives  # not supported by Github pages
+  - jekyll-multiple-languages-plugin  # not supported by Github pages
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -289,6 +293,7 @@ defaults:
       comments: true
       share: true
       related: true
+      show_overlay_title: true
       toc: true
       toc_ads: true
       toc_sticky: true
@@ -304,3 +309,4 @@ defaults:
       comments: false
       share: true
       related: false
+      show_overlay_title: false

@@ -1,11 +1,3 @@
----
-layout: single
-title: "CV"
-description: "백경덕의 Curriculum Vitae"
-lang: ko
-ref: cv
-permalink: /ko/cv/
----
 Education
 ---
 - _Feb. 2010 - Feb. 2012_ 대전과학고등학교  

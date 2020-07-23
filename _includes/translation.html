@@ -1,13 +1,13 @@
-{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
-{% for post in posts %}
-{% if page.lang != post.lang %}
-Read this article in <a href="{{ post.url }}" class="{{ post.lang }}">{{ site.data.languages[post.lang].label }}</a>
+{% if site.is_post %}
+{% capture name %}article{% endcapture %}
+{% else %}
+{% capture name %}page{% endcapture %}
 {% endif %}
-{% endfor %}
 
-{% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
-{% for p in pages %}
-{% if page.lang != p.lang %}
-Read this page in <a href="{{ p.url }}" class="{{ p.lang }}">{{ site.data.languages[p.lang].label }}</a>
+{% if site.lang == "en" %}
+{% capture link %}{{ site.baseurl_root }}/ko{{ page.url }}{% endcapture %}
+Read this {{ name }} in <a href="{{ link }}" >{% t global.ko %}</a>
+{% elsif site.lang == "ko" %}
+{% capture link %}{{ site.baseurl_root }}{{ page.url }}{% endcapture %}
+Read this {{ name }} in <a href="{{ link }}" >{% t global.en %}</a>
 {% endif %}
-{% endfor %}

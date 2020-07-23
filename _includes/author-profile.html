@@ -19,11 +19,12 @@
     {% if author.home %}
       <a href="{{ author_link }}"><h3 class="author__name" itemprop="name">{{ author.name }}</h3></a>
     {% else %}
-      <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
+      <h3 class="author__name" itemprop="name">{% t author.name %}</h3>
     {% endif %}
     {% if author.bio %}
       <div class="author__bio" itemprop="description">
-        {{ author.bio | markdownify }}
+        {% capture bio %}{% t author.bio %}{% endcapture %}
+        {{ bio | markdownify }}
       </div>
     {% endif %}
   </div>
@@ -33,7 +34,7 @@
     <ul class="author__urls social-icons">
       {% if author.location %}
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">{{ author.location }}</span>
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">{% t author.location %}</span>
         </li>
       {% endif %}
 

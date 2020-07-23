@@ -1,11 +1,3 @@
----
-layout: single
-title: "CV"
-description: "Curriculum Vitae of KyeongDeok Baek"
-lang: en
-ref: cv
-permalink: /en/cv/
----
 Education
 ---
 - _Feb. 2010 - Feb. 2012_ Daejeon Science High School  
