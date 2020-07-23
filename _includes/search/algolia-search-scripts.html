@@ -37,7 +37,7 @@ search.addWidget(
   instantsearch.widgets.searchBox({
     container: '.search-searchbar',
     {% unless site.algolia.powered_by == false %}poweredBy: true,{% endunless %}
-    placeholder: '{{ site.data.ui-text[site.locale].search_placeholder_text | default: "Enter your search term..." }}'
+    placeholder: '{% t ui.search_placeholder_text %}'
   })
 );
 search.addWidget(

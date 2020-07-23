@@ -30,7 +30,8 @@
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
+    {% capture follow_label %}{% t ui.follow_label %}{% endcapture %}
+    <button class="btn btn--inverse">{{ follow_label | remove: ":" }}</button>
     <ul class="author__urls social-icons">
       {% if author.location %}
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
@@ -42,7 +43,7 @@
       <li>
         <a href="mailto:{{ author.email }}">
           <meta itemprop="email" content="{{ author.email }}" />
-          <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span>
+          <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">{% t ui.email_label %}</span>
         </a>
       </li>
       {% endif %}
@@ -58,7 +59,7 @@
       {% if author.uri %}
         <li>
           <a href="{{ author.uri }}" itemprop="url">
-            <i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">{{ site.data.ui-text[site.locale].website_label | default: "Website" }}</span>
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">{% t ui.website_label %}</span>
           </a>
         </li>
       {% endif %}
@@ -242,7 +243,7 @@
       {% if author.vine %}
         <li>
           <a href="https://vine.co/u/{{ author.vine }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
-            <i class="fab fa-fw fa-vine" aria-hidden="true"></i><span class="label">{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span>
+            <i class="fab fa-fw fa-vine" aria-hidden="true"></i><span class="label">{% t ui.email_label %}</span>
           </a>
         </li>
       {% endif %}

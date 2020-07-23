@@ -6,8 +6,8 @@
 
 {% if site.lang == "en" %}
 {% capture link %}{{ site.baseurl_root }}/ko{{ page.url }}{% endcapture %}
-Read this {{ name }} in <a href="{{ link }}" >{% t global.ko %}</a>
+Read this {{ name }} in <a href="{{ link }}" >{% t translate.ko %}</a>
 {% elsif site.lang == "ko" %}
 {% capture link %}{{ site.baseurl_root }}{{ page.url }}{% endcapture %}
-Read this {{ name }} in <a href="{{ link }}" >{% t global.en %}</a>
+Read this {{ name }} in <a href="{{ link }}" >{% t translate.en %}</a>
 {% endif %}

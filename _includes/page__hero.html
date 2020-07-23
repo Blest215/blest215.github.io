@@ -22,7 +22,7 @@
       {% if page.header.show_overlay_title %}
       <h1 id="page-title" class="page__title" itemprop="headline">
         {% if paginator and site.paginate_show_page_num %}
-          {{ site.title }}{% unless paginator.page == 1 %} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}
+          {{ site.title }}{% unless paginator.page == 1 %} {% t ui.page %} {{ paginator.page }}{% endunless %}
         {% else %}
           {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
         {% endif %}
@@ -37,12 +37,13 @@
         <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
       {% endif %}
       {% if page.header.cta_url %}
-        <p><a href="{{ page.header.cta_url | relative_url }}" class="btn btn--light-outline btn--large">{{ page.header.cta_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+        {% capture cta_label %}{% t ui.more_label %}{% endcapture %}
+        <p><a href="{{ page.header.cta_url | relative_url }}" class="btn btn--light-outline btn--large">{{ page.header.cta_label | default: cta_label }}</a></p>
       {% endif %}
       {% if page.header.actions %}
         <p>
         {% for action in page.header.actions %}
-          <a href="{{ action.url | relative_url }}" class="btn btn--light-outline btn--large">{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a>
+          <a href="{{ action.url | relative_url }}" class="btn btn--light-outline btn--large">{{ action.label | default: cta_label }}</a>
         {% endfor %}
       {% endif %}
     </div>
