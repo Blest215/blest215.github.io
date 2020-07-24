@@ -1,13 +1,13 @@
 Education
 ---
-- _Feb. 2010 - Feb. 2012_ 대전과학고등학교  
-- _Feb. 2012 - Feb. 2016_ KAIST (Korea Advanced Institute of Science and Technology) 전산학부 공학사  
-- _Mar. 2012 -_ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KAIST 전산학부 **석박사통합과정**  
+- 대전과학고등학교 _Feb. 2010 - Feb. 2012_  
+- 카이스트 전산학부 공학사 _Feb. 2012 - Feb. 2016_  
+- **카이스트 전산학부 웹공학연구실 석박사통합과정** _Mar. 2012 -_  
 
 Publications
 ---
 ### SCI journals
-- 2020 2저자, 교신저자, "A Human-centric and Environment-aware Testing Framework for Providing Safe and Reliable Cyber-Physical System Services", JWE 
+- 2020, 2저자/교신저자, "A Human-centric and Environment-aware Testing Framework for Providing Safe and Reliable Cyber-Physical System Services", JWE 
 
 ### International Conferences
 - 2017, 1저자, **"Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments"** ICWE 2017 Full
@@ -44,16 +44,16 @@ Technical Experiences
 
 Skills
 ---
-- DevOps: Amazon Web Service (AWS), Docker
-- Back-end: Django, Flask, Spring Boot, REST API
-- Front-end: HTML5
-- Programming: C, C++, Python, Java, Javascript, LaTeX
-- Tools: Tensorflow, Unreal Engine, Network Simulator 3 (NS3)
-- Language: Korean, English
+- DevOps: Amazon Web Service (AWS), Docker, Git
+- 백엔드: Django, Flask, Spring Boot, REST API
+- 프론트엔드: HTML5, CSS, Jekyll
+- 프로그래밍: Python, C, C++, Java, Javascript, LaTeX
+- 도구: Tensorflow, Unreal Engine, Network Simulator 3 (NS3)
+- 언어: Korean, English
 
 Extra
 ---
-- 동메달, 2008 한국 지구과학 올림피아드 (KESO) - 중등부
-- 은메달, 2009 한국 지구과학 올림피아드 (KESO) - 중등부
-- 겨울학교 입소 대상자, 2010 한국 천문학 올림피아드 (KAO) - 고등부
-- 2차 면접 통과, 2010 한국 지구과학 올림피아드 (KESO) - 고등부
+- 2008 한국 지구과학 올림피아드 (KESO) - 중등부 동메달 
+- 2009 한국 지구과학 올림피아드 (KESO) - 중등부 은메달 
+- 2010 한국 천문학 올림피아드 (KAO) - 고등부 겨울학교 입소 대상자 
+- 2010 한국 지구과학 올림피아드 (KESO) - 고등부 2차 면접 통과 

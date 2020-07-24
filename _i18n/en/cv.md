@@ -1,13 +1,13 @@
 Education
 ---
-- _Feb. 2010 - Feb. 2012_ Daejeon Science High School  
-- _Feb. 2012 - Feb. 2016_ B.S. in School of Computing, KAIST (Korea Advanced Institute of Science and Technology)  
-- _Mar. 2012 -_ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Integrated Master's & Ph.D. Program** in School of Computing, KAIST (Korea Advanced Institute of Science and Technology)  
+- Daejeon Science High School _Feb. 2010 - Feb. 2012_  
+- B.S. in School of Computing, KAIST (Korea Advanced Institute of Science and Technology) _Feb. 2012 - Feb. 2016_  
+- **Integrated Master's & Ph.D. Program in Web Engineering and Service Computing Lab, School of Computing, KAIST** _Mar. 2012 -_  
 
 Publications
 ---
 ### SCI journals
-- 2020 2nd, Corresponding author, "A Human-centric and Environment-aware Testing Framework for Providing Safe and Reliable Cyber-Physical System Services", JWE 
+- 2020, 2nd/Corresponding author, "A Human-centric and Environment-aware Testing Framework for Providing Safe and Reliable Cyber-Physical System Services", JWE 
 
 ### International Conferences
 - 2017, 1st author, **"Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments"** ICWE 2017 Full
@@ -44,16 +44,16 @@ Technical Experiences
 
 Skills
 ---
-- DevOps: Amazon Web Service (AWS), Docker
+- DevOps: Amazon Web Service (AWS), Docker, Git
 - Back-end: Django, Flask, Spring Boot, REST API
-- Front-end: HTML5
-- Programming: C, C++, Python, Java, Javascript, LaTeX
+- Front-end: HTML5, CSS, Jekyll
+- Programming: Python, C, C++, Java, Javascript, LaTeX
 - Tools: Tensorflow, Unreal Engine, Network Simulator 3 (NS3)
 - Language: Korean, English
 
 Extra
 ---
-- Bronze Medal, 2008 Korea Earth Science Olympiad (KESO) - Middle School
-- Silver Medal, 2009 Korea Earth Science Olympiad (KESO) - Middle School
-- Winter School Subject, 2010 Korea Astronomy Olympiad (KAO) - High School
-- Pass Second Interview, 2010 Korea Earth Science Olympiad (KESO) - High School
+- 2008 Korea Earth Science Olympiad (KESO) - Middle School Bronze Medal 
+- 2009 Korea Earth Science Olympiad (KESO) - Middle School Silver Medal 
+- 2010 Korea Astronomy Olympiad (KAO) - High School Winter School Subject 
+- 2010 Korea Earth Science Olympiad (KESO) - High School Pass Second Interview 

@@ -4,7 +4,7 @@ translate:
 
 author:
   name: KyeongDeok Baek
-  bio: Ph.D. candidate in <i>Web Engineering Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)</i>
+  bio: Ph.D. candidate in <i>Web Engineering and Service Computing Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)</i>
   location: Daejeon, Republic of Korea
 
 ui:
@@ -37,6 +37,9 @@ ui:
   powered_by: "Powered by"
   website_label: "Website"
   email_label: "Email"
+  github_label: "GitHub"
+  linkedin_label: "LinkedIn"
+  steam_label: "Steam"
   recent_posts: "Recent posts"
   undefined_wpm: "Undefined parameter words_per_minute at _config.yml"
   comment_form_info: "Your email address will not be published. Required fields are marked"
