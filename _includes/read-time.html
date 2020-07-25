@@ -11,5 +11,5 @@
 {% elsif words == words_per_minute %}
   1 {% t ui.minute_read %}
 {% else %}
-  {{ words | divided_by:words_per_minute }} {% t ui.minute_read %}}
+  {{ words | divided_by:words_per_minute }} {% t ui.minute_read %}
 {% endif %}

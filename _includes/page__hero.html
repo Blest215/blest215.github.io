@@ -14,12 +14,13 @@
 
 {% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
 
-<div class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
-  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}), {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+<div class="page__hero--overlay"
+  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color }};{% endif %}
+  background-image: {% if overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}), {% endif %}
+  url('{% if page.header.overlay_image %}{{ overlay_img_path }}{% else %}{{ page.header.image }}{% endif %}');"
 >
-  {% if page.header.overlay_color or page.header.overlay_image %}
+  {% if page.header.overlay_image %}
     <div class="wrapper">
-      {% if page.header.show_overlay_title %}
       <h1 id="page-title" class="page__title" itemprop="headline">
         {% if paginator and site.paginate_show_page_num %}
           {{ site.title }}{% unless paginator.page == 1 %} {% t ui.page %} {{ paginator.page }}{% endunless %}
@@ -27,7 +28,6 @@
           {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
         {% endif %}
       </h1>
-      {% endif %}
       {% if page.tagline %}
         <p class="page__lead">{{ page.tagline | markdownify | remove: "<p>" | remove: "</p>" }}</p>
       {% elsif page.header.show_overlay_excerpt != false and page.excerpt %}
@@ -48,7 +48,7 @@
       {% endif %}
     </div>
   {% else %}
-    <img src="{{ page.header.image | relative_url }}" alt="{{ image_description }}" class="page__hero-image">
+    <!--<img src="{{ page.header.image | relative_url }}" alt="{{ image_description }}" class="page__hero-image">-->
   {% endif %}
   {% if page.header.caption %}
     <span class="page__hero-caption">{{ page.header.caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
