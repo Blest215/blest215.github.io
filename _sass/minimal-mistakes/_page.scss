@@ -78,6 +78,10 @@ body {
   }
 }
 
+.page__description {
+  margin-bottom: 0;
+}
+
 .page__lead {
   font-family: $global-font-family;
   font-size: $type-size-4;

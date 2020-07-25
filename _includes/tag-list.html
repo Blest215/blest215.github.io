@@ -19,7 +19,7 @@
     {% for hash in tag_hashes %}
       {% assign keyValue = hash | split: '|' %}
       {% capture tag_word %}{{ keyValue[1] | strip_newlines }}{% endcapture %}
-      {% capture url %}{{ site.baseurl }}{{ tag_word | slugify | prepend: path_type | prepend: site.tag_archive.path | relative_url }}{% endcapture %}
+      {% capture url %}{{ site.baseurl }}{{ tag_word | slugify | prepend: path_type | prepend: site.tag_archive.path }}{% endcapture %}
       <a href="{{ url }}" class="page__taxonomy-item" rel="tag">{{ tag_word }}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
     {% endfor %}
     </span>
