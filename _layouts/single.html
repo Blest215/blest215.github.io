@@ -27,7 +27,7 @@ layout: default
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
-          {% if page.excerpt %}<p id="page-description" class="page__description" itemprop="description">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>{% endif %}
+          {% if page.subtitle %}<p id="page-subtitle" class="page__subtitle" itemprop="description">{{ page.subtitle | markdownify | remove: "<p>" | remove: "</p>" }}</p>{% endif %}
           <p class="page__meta">
           {% if page.read_time %}
           <i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
