@@ -57,3 +57,4 @@ ui:
   search_placeholder_text: "Enter your search term..."
   results_found: "Result(s) found"
   back_to_top: "Back to top"
+  404_label: "Your pixels are in another canvas."

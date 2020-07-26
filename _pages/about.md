@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "About"
-description: "introduction of this blog"
+title: About
+description: introduction of this blog
 permalink: /about/
 ---
 

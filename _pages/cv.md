@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "CV"
-description: "Curriculum Vitae of KyeongDeok Baek"
+title: Curriculum Vitae
+description: Curriculum Vitae of KyeongDeok Baek
 permalink: /cv/
 ---
 
