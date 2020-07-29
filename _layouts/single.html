@@ -24,7 +24,7 @@ layout: default
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
     <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
+      {% unless page.header.overlay_image %}
         <header>
           {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
           {% if page.subtitle %}<p id="page-subtitle" class="page__subtitle" itemprop="description">{{ page.subtitle | markdownify | remove: "<p>" | remove: "</p>" }}</p>{% endif %}
