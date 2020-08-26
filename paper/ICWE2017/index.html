@@ -1,0 +1,699 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments - Blest</title>
+<meta name="description" content="This is my first paper published, that I have presented at International Conference on Web Engineering (ICWE) 2017 conference when I was in the second year of the master’s. To present this paper, I have been to Rome for my first abroad business trip. Afterwards, I attended ICWE every year, ICWE 2017 (Rome, Italy), ICWE 2018 (Cáceres, Spain), ICWE 2019 (Daejeon, Republic of Korea), as a presenter of papers, except this year (2020) that I attended the conference in online because of COVID-19 outbreak. Every conference was memorable experience, along with very good colleagues.">
+
+
+  <meta name="author" content="author.name">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Blest">
+<meta property="og:title" content="Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments">
+<meta property="og:url" content="https://blest215.github.io/paper/ICWE2017/">
+
+
+  <meta property="og:description" content="This is my first paper published, that I have presented at International Conference on Web Engineering (ICWE) 2017 conference when I was in the second year of the master’s. To present this paper, I have been to Rome for my first abroad business trip. Afterwards, I attended ICWE every year, ICWE 2017 (Rome, Italy), ICWE 2018 (Cáceres, Spain), ICWE 2019 (Daejeon, Republic of Korea), as a presenter of papers, except this year (2020) that I attended the conference in online because of COVID-19 outbreak. Every conference was memorable experience, along with very good colleagues.">
+
+
+
+  <meta property="og:image" content="https://blest215.github.io/assets/images/ICWE%202017/jonatan-pie-h8nxGssjQXs-unsplash.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-07-29T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://blest215.github.io/paper/ICWE2017/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "KyeongDeok Baek",
+      "url": "https://blest215.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Blest Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.ico">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/assets/icons/manifest.json">
+<link rel="mask-icon" href="/assets/icons/favicon-96x96.png" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/ko">
+          Blest
+          <span class="site-subtitle">과학자가 되고 싶었던 대학원생의 공학 연구 이야기</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              
+              <a href="/ko/about/">About</a>
+            </li><li class="masthead__menu-item">
+              
+              <a href="/ko/cv/">CV</a>
+            </li><li class="masthead__menu-item">
+              
+              <a href="/ko/posts/">Posts</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="background-color: black;
+  background-image: 
+  url('/assets/images/ICWE 2017/jonatan-pie-h8nxGssjQXs-unsplash.jpg');"
+>
+  
+    <!--<img src="/assets/images/ICWE%202017/jonatan-pie-h8nxGssjQXs-unsplash.jpg" alt="Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments" class="page__hero-image">-->
+  
+  
+    <span class="page__hero-caption"><a href="https://unsplash.com/photos/h8nxGssjQXs">Photo by Jonatan Pie on Unsplash</a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/profile.jpg" alt="author.name" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">KyeongDeok Baek</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        
+        <p>Ph.D. candidate in <i>Web Engineering and Service Computing Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)</i></p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Daejeon, Republic of Korea</span>
+        </li>
+      
+
+      
+      <li>
+        <a href="mailto:blest215@kaist.ac.kr">
+          <meta itemprop="email" content="blest215@kaist.ac.kr" />
+          <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+        </a>
+      </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+        <li>
+          <a href="https://blest215.github.io" itemprop="url">
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span>
+          </a>
+        </li>
+      
+
+      
+      <li>
+        <a href="https://github.com/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+        </a>
+      </li>
+      
+
+      
+      <li>
+        <a href="https://www.linkedin.com/in/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
+        </a>
+      </li>
+      
+
+      
+      <li>
+        <a href="https://steamcommunity.com/id/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-steam" aria-hidden="true"></i><span class="label">Steam</span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments">
+    <meta itemprop="description" content="This is my first paper published, that I have presented at International Conference on Web Engineering (ICWE) 2017 conference when I was in the second year of the master’s. To present this paper, I have been to Rome for my first abroad business trip. Afterwards, I attended ICWE every year, ICWE 2017 (Rome, Italy), ICWE 2018 (Cáceres, Spain), ICWE 2019 (Daejeon, Republic of Korea), as a presenter of papers, except this year (2020) that I attended the conference in online because of COVID-19 outbreak. Every conference was memorable experience, along with very good colleagues.">
+    <meta itemprop="datePublished" content="2020-07-29T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments
+</h1>
+          <p id="page-subtitle" class="page__subtitle" itemprop="description">International Conference on Web Engineering 2017
+</p>
+          <p class="page__meta">
+          
+          <i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  8 minute read
+
+
+          
+          <span style="float: right;">
+          
+
+
+
+Read this page in <a href="/ko/paper/ICWE2017/" >한국어</a>
+
+          </span>
+          </p>
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#spatio-cohesive-service-discovery-and-dynamic-service-handover">Spatio Cohesive Service Discovery and Dynamic Service Handover</a>
+    <ul>
+      <li><a href="#discovery-plan-generation">Discovery Plan Generation</a></li>
+      <li><a href="#spatio-cohesive-service-discovery-and-dynamic-service-handover-1">Spatio Cohesive Service Discovery and Dynamic Service Handover</a></li>
+    </ul>
+  </li>
+  <li><a href="#evaluation">Evaluation</a></li>
+  <li><a href="#testbed-implementation">Testbed implementation</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>This is my first paper published, that I have presented at International Conference on Web Engineering (ICWE) 2017 conference when I was in the second year of the master’s. To present this paper, I have been to Rome for my first abroad business trip. Afterwards, I attended ICWE every year, ICWE 2017 (Rome, Italy), ICWE 2018 (Cáceres, Spain), ICWE 2019 (Daejeon, Republic of Korea), as a presenter of papers, except this year (2020) that I attended the conference in online because of COVID-19 outbreak. Every conference was memorable experience, along with very good colleagues.</p>
+
+<p><img src="/assets/images/ICWE 2017/IMG_0242.jpg" alt="" /></p>
+
+<p>At that time, when I was writing this paper right after enter graduate school, my concepts were not that precise. I mentioned Internet of Things (IoT) and Mobile Ad-hoc Network (MANET) at the same time, didn’t distinguish between physical resources and abstract services. However, even though concepts were confusing, my ultimate research direction: <em>providing services to users better in IoT environments</em>, was about to have its shape.</p>
+
+<p>Of course, the reviewers criticized those weak points of the paper very sharply, and getting (perhaps) clearer in my follow-up works.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This paper proposes a service discovery algorithm that discovers appropriate services in IoT environments, so that the users can accomplish their goals utilizing physical IoT devices.</p>
+
+<p>On the one hand, the main characteristic of our service discovery algorithm is <strong>spatio-cohesiveness</strong>. Simply, the goal is to place the spatially-related services in vicinity because the IoT services may involve some interactions with the user. For that, our algorithm analyze spatial-relationships between user-service or service-service pairs and define spatio-cohesiveness requirements. We defined spatio-cohesiveness metric in terms of how strongly the spatio-cohesiveness requirements met, and the metric becomes the criteria of service discovery. As a result, discovered services have spatial cohesiveness in user’s vicinity, like a fog around the user.</p>
+
+<p>On the other hand, the second characteristic of our algorithm is <strong>service handover</strong>. In IoT environments, the location of users or services has mobility, which affects spatio-cohesiveness over the service provision. Therefore, services should be continuously re-discovered and replaced to maintain high spatio-cohesiveness. I adopted the cell handover concept from network domain, and defined this replacement of services as service handover. Actually, I borrowed a new concept that I just learned, one of the reviewers criticized that the handover concept in this paper is immature. Anyway, regardless of terminology, this replacement concept of services for maintaining high service quality toward mobile users, is necessary and still ongoing in my recent works.</p>
+
+<h2 id="spatio-cohesive-service-discovery-and-dynamic-service-handover">Spatio Cohesive Service Discovery and Dynamic Service Handover</h2>
+
+<p><img src="/assets/images/ICWE 2017/Dynamic Spatio-Cohesive Service Discovery.png" alt="The spatio-cohesive service discovery and handover process" /></p>
+
+<p>Our spatio-cohesive service discovery algorithm is consist of two phases. First, when a set of resources and services that are required to accomplish task is given, the algorithm extract spatio-cohesiveness requirements considering their spatial-relationship, and generate discovery plan. Then, using the discovery plan, spatio-cohesive service discovery is performed initially, and dynamically handover (replace services) during the service provision time.</p>
+
+<h3 id="discovery-plan-generation">Discovery Plan Generation</h3>
+
+<p>Firstly, a spatio-cohesive requirement r=(m, n, l) is simply represent that how long the user or services can be. For instance, (u, s1, l1) means the user u and service s1 can be apart up to distance l1, and service cannot be provided properly if the distance between them exceed the limit. And for a given set of service candidates C, we calculate how strongly each requirement is met by using a function r(C), which output’s range is [0, 1]. The output of the function is 0, if the distance exceed the limit, and 1 if the distance is minimum.</p>
+
+<p>We defined such spatio-cohesiveness requirements not to discover every services to be cohesive, which will discover the services that do not have to be close, unnecessarily. Of course, even Web services would be better to be close for faster network speed, but I wanted to consider physical characteristics of IoT services, which is the main target of this work.</p>
+
+<p>Additionally, we assume that the spatio-cohesiveness requirements of a user’s task can be automatically extracted based on the ontology we suggest, by using Semantic Web Rule Language (SWRL). We haven’t evaluated the extraction, while the focus of this work is on service discoveries, not semantic analysis.</p>
+
+<p><img src="/assets/images/ICWE 2017/Requirement Processing.png" alt="Example of building a service discovery plan" /></p>
+
+<p>When a set of spatio-cohesiveness requirements is given, our algorithm first convert it into a form of graph, and perform spanning tree algorithms such as Depth-First Search (DFS) or Breadth-First Search (BFS) to convert the graph into a form of tree that has the user as its root. At this moment, the order the algorithm visiting services becomes the service discovery plan. For instance, the figure above is an example of BFS-based service discovery plan, which means that the service discovery should be done for S1 first and discover S3 and S4 from the location of S1.</p>
+
+<p>As you can see in the figure, some of the spatio-cohesiveness requirements are included in the discovery plan, while the others not. At the service discovery phase, discovery itself is performed following the discovery plan but there is additional process to check the spatio-cohesiveness requirements that are not included in the discovery plan.</p>
+
+<p>In our algorithm, we let the discovery of the services not performed altogether at once but in an iterative manner by considering their spatial relationship, because we targeted MANET environment. We set the network of the environments that individual network nodes are constructing local ad-hoc networks rather than being connected through the Internet. So the discovery algorithm also becomes more likely to be a kind of network protocol, not like traditional semantic Web service discovery algorithms that access registry with a certain query. Actually, at that time, I read many papers of service discovery in network level not semantic Web level, and I was affected by those paper. Maybe later, I’ll explain the difference between network-level service discovery protocols and semantic Web service discovery in another article.</p>
+
+<h3 id="spatio-cohesive-service-discovery-and-dynamic-service-handover-1">Spatio Cohesive Service Discovery and Dynamic Service Handover</h3>
+
+<p>After generating service discovery plan, the spatio-cohesive service discovery is quite simple. It just discovers the services that have spatio-cohesiveness requirements with the user, in the user’s vicinity. Then, iteratively discover the services that have spatio-cohesiveness requirements with the priorly discovered services.</p>
+
+<p>We didn’t consider service selection, so when multiple candidates of services are discovered, the algorithm selects the nearest one. And if the selected service does not met the spatio-cohesiveness requirements that are not included in the discovery plan, the algorithm selects another one.</p>
+
+<p>Dynamic service handover has similar process. After the initial service discovery is done, the user and the selected services monitor whether the spatio-cohesiveness requirements are met continuously, and re-discover nearby services. If one of the spatio-cohesiveness requirements are broken or a better service is discovered, it performs handover to replace the poor service. In this paper we didn’t consider handover cost and simply prioritizing services in terms of its signal strength. After handover, the connected services of the handover-ed services are also re-discovered.</p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>We evaluated our spatio-cohesive service discovery and dynamic service handover algorithm in simulation envrironments using NS3. We put 200 service nodes in 100m * 100m area, and located the user in the center of the area. Every service nodes and the user follow RandomDirection2d mobility model of the simulator, with speed between 1~10m/s. Then, we built a virtual task that requires 10 services and randomly generated spatio-cohesiveness requirements. Using the requirements, service plan generation and service discovery and service handover are performed. The main evaluation metric was our spatio-cohesiveness value. We conducted 20s simulations 50 times for each configuration and get average.</p>
+
+<p><img src="/assets/images/ICWE 2017/Objective.png" alt="Spatio-cohesiveness results compared to baseline approaches" /></p>
+
+<p>Skip other minor results, the main result of the experiments is like above. BFS-based and DFS-based strategy of generating service discovery plan was not that different, and maintained high value of spatio-cohesiveness over the service provision time. Otherwise, continuously spatio-cohesiveness decreases in the cases of without handover or without discovery plan.</p>
+
+<p>In this result, the maximum of spatio-cohesiveness is nearly 0.6, which seems not that high, because the distance between two services should be 0 to make requirement fulfillment score as 1, while every service have distance from each other. Furthermore, we set baseline algorithms a little weak, because there was no service discovery work considering spatio-cohesiveness.</p>
+
+<h2 id="testbed-implementation">Testbed implementation</h2>
+
+<p><img src="/assets/images/ICWE 2017/Demo-01.png" alt="Demonstration of a service-handover scenario in the testbed" /></p>
+
+<p>At that time, thanks to Cuong, who worked in our lab as a undergraduate intern, we could implement simple handover algorithm in our testbed and include proof-of-concept in the paper. Our professor said that this real-world implementation of the algorithm would contribute to the accept of the paper a lot, and it is true that showing the practicality of the paper is important for engineering research. But at that time, I didn’t understand such things. Anyway, because my works are targetting near-future environments that numerous numbers of IoT services are deployed, my works are often criticized because of their practicality, and there is no better way than showing its tangible implementation.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this work, we proposed a spatio-cohesive service discovery and dynamic service handover algorithm, that discover services in a spatially cohesive manner and replace services to maintain high spatio-cohesiveness, by considering physical characteristics of IoT environments. Not simply discover every necessary services cohesively, but set spatio-cohesiveness requirements between user-service or service-service relationship and discover cohesively for the services that need to be cohesive. As a result, the user can interact IoT services physically in the vicinity.</p>
+
+<p>I revisited this paper to write this article, and there are some immature things but still this is meaningful my first paper and shows the direction of my human-centric service computing research. Regardless of approaches, the core of my research is to support users to get maximum value by using minimum effort when there are numerous services.</p>
+
+<p>Additionally, I didn’t know that I have to run in my pace to survive in graduate school, so I performed experiments until 4AM and woke up 6 hours later to write the paper about a month. After that, I had long burned-out season and finally realized that I shouldn’t have done like that…</p>
+
+<p>In my following ICWE 2018 work, I extended algorithms in this work by adopting reinforcement learning techniques to make our dynamic service handover more smart. I will write the article of that paper soon.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        <h4 class="page__meta-title"></h4>
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      
+      <a href="/tags/icwe" class="page__taxonomy-item" rel="tag">ICWE</a><span class="sep">, </span>
+    
+      
+      
+      
+      <a href="/tags/iot" class="page__taxonomy-item" rel="tag">IoT</a><span class="sep">, </span>
+    
+      
+      
+      
+      <a href="/tags/servicediscovery" class="page__taxonomy-item" rel="tag">ServiceDiscovery</a><span class="sep">, </span>
+    
+      
+      
+      
+      <a href="/tags/servicehandover" class="page__taxonomy-item" rel="tag">ServiceHandover</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      
+      <a href="/categories/paper" class="page__taxonomy-item" rel="tag">Paper</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-07-29T00:00:00+00:00">July 29, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+  <h4 class="page__share-title">Share on</h4>
+  <a href="https://twitter.com/intent/tweet?text=Spatially+Cohesive+Service+Discovery+and+Dynamic+Service+Handover+for+Distributed+IoT+Environments%20https%3A%2F%2Fblest215.github.io%2Fpaper%2FICWE2017%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblest215.github.io%2Fpaper%2FICWE2017%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fblest215.github.io%2Fpaper%2FICWE2017%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/development/PythonDecorator/" class="pagination--pager" title="Developing Service Agent using Python Decorators
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/bonfire.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        
+        <a href="/development/PythonDecorator/" rel="permalink">Developing Service Agent using Python Decorators
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">When I participated in different IoT testbed development project, using Java annotations were very impressive. Within appropriate annotations, information of...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <li><strong>팔로우:</strong></li>
+
+    
+      
+        
+          <li><a href="https://github.com/Blest215" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/blest215/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 KyeongDeok Baek. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://blest215.github.io/paper/ICWE2017/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/paper/ICWE2017"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-blest215-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

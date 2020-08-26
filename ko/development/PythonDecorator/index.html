@@ -1,0 +1,849 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>파이썬 decorator를 사용한 서비스 에이전트 개발 - Blest</title>
+<meta name="description" content="예전에 다른 IoT 테스트베드 개발 프로젝트에 참여했을 때, Java의 annotation을 잘 활용해서 서비스 에이전트에 적절한 annotation을 달면 자동으로 에이전트의 정보가 서버에 등록되어 사람들이 활용할 수 있는 UI까지 자동으로 생성해주는 기능이 인상적이었다.">
+
+
+  <meta name="author" content="author.name">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Blest">
+<meta property="og:title" content="파이썬 decorator를 사용한 서비스 에이전트 개발">
+<meta property="og:url" content="https://blest215.github.io/development/PythonDecorator/">
+
+
+  <meta property="og:description" content="예전에 다른 IoT 테스트베드 개발 프로젝트에 참여했을 때, Java의 annotation을 잘 활용해서 서비스 에이전트에 적절한 annotation을 달면 자동으로 에이전트의 정보가 서버에 등록되어 사람들이 활용할 수 있는 UI까지 자동으로 생성해주는 기능이 인상적이었다.">
+
+
+
+  <meta property="og:image" content="https://blest215.github.io/assets/images/PythonDecorator/adam-jaime-iciBcD8NOeA-unsplash.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-08-25T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://blest215.github.io/development/PythonDecorator/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "KyeongDeok Baek",
+      "url": "https://blest215.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Blest Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.ico">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/assets/icons/manifest.json">
+<link rel="mask-icon" href="/assets/icons/favicon-96x96.png" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/ko">
+          Blest
+          <span class="site-subtitle">과학자가 되고 싶었던 대학원생의 공학 연구 이야기</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              
+              <a href="/ko/about/">About</a>
+            </li><li class="masthead__menu-item">
+              
+              <a href="/ko/cv/">CV</a>
+            </li><li class="masthead__menu-item">
+              
+              <a href="/ko/posts/">Posts</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="
+  background-image: 
+  url('/assets/images/PythonDecorator/adam-jaime-iciBcD8NOeA-unsplash.jpg');"
+>
+  
+    <!--<img src="/assets/images/PythonDecorator/adam-jaime-iciBcD8NOeA-unsplash.jpg" alt="파이썬 decorator를 사용한 서비스 에이전트 개발" class="page__hero-image">-->
+  
+  
+    <span class="page__hero-caption"><a href="https://unsplash.com/photos/iciBcD8NOeA">Photo by Adam Jaime on Unsplash</a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/profile.jpg" alt="author.name" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">백경덕</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        
+        <p>카이스트 전산학부 웹공학연구실 석박사통합과정</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">대전광역시</span>
+        </li>
+      
+
+      
+      <li>
+        <a href="mailto:blest215@kaist.ac.kr">
+          <meta itemprop="email" content="blest215@kaist.ac.kr" />
+          <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+        </a>
+      </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+        <li>
+          <a href="https://blest215.github.io" itemprop="url">
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">웹사이트</span>
+          </a>
+        </li>
+      
+
+      
+      <li>
+        <a href="https://github.com/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">깃허브</span>
+        </a>
+      </li>
+      
+
+      
+      <li>
+        <a href="https://www.linkedin.com/in/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">링크드인</span>
+        </a>
+      </li>
+      
+
+      
+      <li>
+        <a href="https://steamcommunity.com/id/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-steam" aria-hidden="true"></i><span class="label">스팀</span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="파이썬 decorator를 사용한 서비스 에이전트 개발">
+    <meta itemprop="description" content="예전에 다른 IoT 테스트베드 개발 프로젝트에 참여했을 때, Java의 annotation을 잘 활용해서 서비스 에이전트에 적절한 annotation을 달면 자동으로 에이전트의 정보가 서버에 등록되어 사람들이 활용할 수 있는 UI까지 자동으로 생성해주는 기능이 인상적이었다.">
+    <meta itemprop="datePublished" content="2020-08-25T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">파이썬 decorator를 사용한 서비스 에이전트 개발
+</h1>
+          <p id="page-subtitle" class="page__subtitle" itemprop="description">Decorator를 사용한 전처리 및 메타 정보 관리
+</p>
+          <p class="page__meta">
+          
+          <i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 분 소요
+
+
+          
+          <span style="float: right;">
+          
+
+
+
+Read this page in <a href="/development/PythonDecorator/" >English</a>
+
+          </span>
+          </p>
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#함수-전처리-및-후처리-decoration">함수 전처리 및 후처리 decoration</a>
+    <ul>
+      <li><a href="#docstring-유지하기">Docstring 유지하기</a></li>
+      <li><a href="#class의-method-decoration">Class의 method decoration</a></li>
+      <li><a href="#예시-authentication_required">예시: authentication_required</a></li>
+      <li><a href="#입력를-받는-decorator">입력를 받는 decorator</a></li>
+      <li><a href="#decorator에서-함수에-값-넘겨주기">Decorator에서 함수에 값 넘겨주기</a></li>
+      <li><a href="#예시-resource_required">예시: resource_required</a></li>
+    </ul>
+  </li>
+  <li><a href="#함수와-클래스의-메타-정보-decoration">함수와 클래스의 메타 정보 decoration</a>
+    <ul>
+      <li><a href="#class-decoration">Class decoration</a></li>
+      <li><a href="#예시-서비스-에이전트">예시: 서비스 에이전트</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>예전에 다른 IoT 테스트베드 개발 프로젝트에 참여했을 때, Java의 annotation을 잘 활용해서 서비스 에이전트에 적절한 annotation을 달면 자동으로 에이전트의 정보가 서버에 등록되어 사람들이 활용할 수 있는 UI까지 자동으로 생성해주는 기능이 인상적이었다.</p>
+
+<p>그래서 우리 연구실의 테스트베드 개발에도 이처럼 에이전트의 메타 정보를 편하게 관리할 수 있도록 하고 싶었고, Python에서 지원하는 decorator를 적극적으로 활용하려고 하는 중이다.</p>
+
+<p>현재는 (1) 함수를 실행할 때 앞뒤로 실행되어야 하는 기능을 일괄적으로 적용하는 것과 (2) 함수와 클래스의 메타 정보를 작성하는 것에 decorator를 사용하고 있고, 아래에서 설명해보도록 하겠다.</p>
+
+<h2 id="함수-전처리-및-후처리-decoration">함수 전처리 및 후처리 decoration</h2>
+
+<p>일반적으로 활용되는 decorator의 형태이다. 여러 함수의 앞이나 뒤에 공통된 처리를 해주고 싶을 때 사용한다.</p>
+
+<p>기본적인 문법은 다음과 같다. 함수를 인자로 받아 이를 감싸는 함수를 다시 반환하는 식이다. 그러면 Python 인터프리터는 decorator의 대상 함수를 정의할 때, 함수의 내용을 decorator에서 반환하는 내용으로 바꾼다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"pre_processing"</span><span class="p">)</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"post_processing"</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">result</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"function"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">function_to_decorate</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"pre_processing"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"function"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"post_processing"</span>
+</code></pre></div></div>
+
+<h3 id="docstring-유지하기">Docstring 유지하기</h3>
+
+<p>Decorator를 사용하면 함수의 docstring이 사라진다는 문제가 있는데, <code class="language-plaintext highlighter-rouge">wraps</code> 데코레이터를 사용해서 해결할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="o">@</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">pre_processing</span><span class="p">()</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="n">post_processing</span><span class="p">()</span>
+		<span class="k">return</span> <span class="n">result</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">():</span>
+	<span class="s">""" function docstring """</span>
+	<span class="n">something</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">function_to_decorate</span><span class="p">.</span><span class="n">__doc__</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">""" function docstring """</span>
+</code></pre></div></div>
+
+<h3 id="class의-method-decoration">Class의 method decoration</h3>
+
+<p>테스트베드를 개발할 때, 에이전트를 클래스 형태로 정의하고 에이전트가 제공하는 기능들은 메소드 형태로 정의되었기 때문에, decorator가 <code class="language-plaintext highlighter-rouge">self</code> 키워드를 사용하는 method를 수식해줄 필요가 있었고, 이 경우 아래와 같이 키워드를 넣어서 정의해주면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">pre_processing</span><span class="p">()</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="n">post_processing</span><span class="p">()</span>
+		<span class="k">return</span> <span class="n">result</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+	<span class="o">@</span><span class="n">decorator</span>
+	<span class="k">def</span> <span class="nf">method_to_decorate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">something</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="예시-authentication_required">예시: authentication_required</h3>
+
+<p>테스트베드에서 사용한 예시로, <code class="language-plaintext highlighter-rouge">authentication_required</code>, <code class="language-plaintext highlighter-rouge">authorization_required</code> 등이 있다. 그 이름대로, authentication이나 authorization을 진행하는 decorator이며 만약 인증에 실패할 경우 함수를 실행하지 않고 에러 메시지를 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">authentication_required</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">check_authentication</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">authentication</span><span class="p">()</span>
+		<span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s">'success'</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="n">AuthenticationException</span>
+	<span class="k">return</span> <span class="n">check_authentication</span>
+</code></pre></div></div>
+
+<h3 id="입력를-받는-decorator">입력를 받는 decorator</h3>
+
+<p>더욱이, decorator에서 값을 입력받아 그에 맞춰 처리하도록 만들 수도 있다. 이 경우 아래와 같이 decorator의 def 정의가 한 단계 더 깊어진다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">arguments</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+		<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+			<span class="n">pre_processing</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+			<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+			<span class="n">post_processing</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">result</span>
+		<span class="k">return</span> <span class="n">processing</span>
+	<span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div></div>
+
+<h3 id="decorator에서-함수에-값-넘겨주기">Decorator에서 함수에 값 넘겨주기</h3>
+
+<p>Decorator에서 뭔가 전처리를 해서 나온 결과를 함수에 넘겨주어 활용할 수 있다. 이 때 원래 함수의 인자를 덮어쓰거나 <code class="language-plaintext highlighter-rouge">kwargs</code>에 값을 추가해 주는 방식이 가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>  <span class="c1"># override the argument
+</span>	<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">kwargs</span><span class="p">[</span><span class="s">"key"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+		<span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s">"key"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h3 id="예시-resource_required">예시: resource_required</h3>
+
+<p>테스트베드에서는 <code class="language-plaintext highlighter-rouge">resource_required</code>를 예시로 들 수 있는데, 해당 에이전트의 기능이 필요로 하는 자원을 입력받아 자원을 검색하고 확보한 다음, 사용할 자원의 정보를 함수에 다시 넘겨주는 것까지 가능하다. 해당 자원의 사용이 끝난 후에는 자원을 unbind/release하는 것까지 자동으로 해줄 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">resource_required</span><span class="p">(</span><span class="n">resource_description</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+		<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+			<span class="n">resource</span><span class="p">,</span> <span class="n">success</span> <span class="o">=</span> <span class="n">bind_resource</span><span class="p">(</span><span class="n">resource_description</span><span class="p">)</span>
+			
+			<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+				<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+				<span class="n">unbind_resource</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">raise</span> <span class="n">ResourceBindFailedException</span>
+
+<span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+	<span class="o">@</span><span class="n">resource_required</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">'localhost:8001'</span><span class="p">)</span>
+	<span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+		<span class="n">resource</span><span class="p">.</span><span class="n">utilize</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Decorator를 정의할 때 함수가 아니라 클래스 형태로 할 수도 있지만 이번 테스트베드 개발 때는 사용하지 않았으므로 생략한다.</p>
+
+<hr />
+
+<h2 id="함수와-클래스의-메타-정보-decoration">함수와 클래스의 메타 정보 decoration</h2>
+
+<p>Decorator를 사용해 함수의 앞뒤로 처리를 해주는 것까지는 좋았는데, 함수의 메타 정보를 자동으로 생성하는 기능을 decorator로 구현할 수는 없을까 해서 찾아보았고, 성공했다. 이 경우 decorator가 함수의 실행 단계가 아니라 함수의 정의 단계에서 작용하기 때문에 문법이 조금 달라진다. 요점은, ‘함수를 실행하고 그 결과를 반환하는 함수’를 반환하는 대신 함수 그 자체를 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">meta_info_decorator</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+		<span class="n">f</span><span class="p">.</span><span class="n">meta_info</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+			<span class="s">"description"</span><span class="p">:</span> <span class="n">description</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="n">f</span>
+	<span class="k">return</span> <span class="n">decorator</span>
+
+<span class="o">@</span><span class="n">meta_info_decorator</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">"function"</span><span class="p">,</span> 
+    <span class="n">description</span><span class="o">=</span><span class="s">"example description"</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+	<span class="k">pass</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">function</span><span class="p">.</span><span class="n">meta_info</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'function'</span><span class="p">,</span> <span class="s">'description'</span><span class="p">:</span> <span class="s">'example description'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="class-decoration">Class decoration</h3>
+
+<p>심지어는 함수가 아니라 클래스까지도 decoration할 수 있었다. 문법은 함수의 경우와 동일하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">class_decorator</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+		<span class="n">cls</span><span class="p">.</span><span class="n">meta_info</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+			<span class="s">"description"</span><span class="p">:</span> <span class="n">description</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="n">cls</span>
+	<span class="k">return</span> <span class="n">decorator</span>
+
+<span class="o">@</span><span class="n">class_decorator</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">"class"</span><span class="p">,</span> 
+    <span class="n">description</span><span class="o">=</span><span class="s">"example description"</span>
+<span class="p">)</span>
+<span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+	<span class="k">pass</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Agent</span><span class="p">.</span><span class="n">meta_info</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'class'</span><span class="p">,</span> <span class="s">'description'</span><span class="p">:</span> <span class="s">'example description'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="예시-서비스-에이전트">예시: 서비스 에이전트</h3>
+
+<p>결과적으로 위의 내용들을 종합한 서비스 에이전트 예시는 아래와 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">meta_info</span><span class="p">(</span>
+	<span class="n">name</span><span class="o">=</span><span class="s">"LightingServiceAgent"</span><span class="p">,</span>
+	<span class="n">description</span><span class="o">=</span><span class="s">"Service agent for lighting of the testbed"</span><span class="p">,</span>
+	<span class="n">url</span><span class="o">=</span><span class="s">"localhost:8000"</span>
+<span class="p">)</span>
+<span class="k">class</span> <span class="nc">LightingServiceAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+	<span class="o">@</span><span class="n">authorization_required</span>
+	<span class="o">@</span><span class="n">resource_required</span><span class="p">(</span>
+		<span class="nb">type</span><span class="o">=</span><span class="s">"LightingDevice"</span>
+	<span class="p">)</span>
+	<span class="k">def</span> <span class="nf">turnon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">):</span>
+		<span class="n">resource</span><span class="p">.</span><span class="n">turnon</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>앞으로도 decorator는 매우 유용하게 사용할 것 같고, 이번에 느낀 바로는 굉장히 많은 기능들을 깔끔하게 자동화할 수 있어서 좋았다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        <h4 class="page__meta-title"></h4>
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      
+      <a href="/ko/tags/python" class="page__taxonomy-item" rel="tag">Python</a><span class="sep">, </span>
+    
+      
+      
+      
+      <a href="/ko/tags/service" class="page__taxonomy-item" rel="tag">Service</a><span class="sep">, </span>
+    
+      
+      
+      
+      <a href="/ko/tags/testbed" class="page__taxonomy-item" rel="tag">Testbed</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      
+      <a href="/ko/categories/development" class="page__taxonomy-item" rel="tag">Development</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-08-25T00:00:00+00:00">August 25, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+  <h4 class="page__share-title">공유하기</h4>
+  <a href="https://twitter.com/intent/tweet?text=%ED%8C%8C%EC%9D%B4%EC%8D%AC+decorator%EB%A5%BC+%EC%82%AC%EC%9A%A9%ED%95%9C+%EC%84%9C%EB%B9%84%EC%8A%A4+%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8+%EA%B0%9C%EB%B0%9C%20https%3A%2F%2Fblest215.github.io%2Fdevelopment%2FPythonDecorator%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblest215.github.io%2Fdevelopment%2FPythonDecorator%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fblest215.github.io%2Fdevelopment%2FPythonDecorator%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/paper/ICWE2017/" class="pagination--pager" title="Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">댓글남기기</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/bonfire.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        
+        <a href="/ko/paper/ICWE2017/" rel="permalink">Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  19 분 소요
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">내가 석사 2년차 때  International Conference on Web Engineering (ICWE) 2017 학회에 발표했던 첫 논문이다. 이 논문을 발표하기 위해 로마에 첫 해외 학회 출장을 다녀온 후, 코로나 때문에 온라인 참석한 올해를 제외하고 ICWE 2017...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <li><strong>팔로우:</strong></li>
+
+    
+      
+        
+          <li><a href="https://github.com/Blest215" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/blest215/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 KyeongDeok Baek. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://blest215.github.io/development/PythonDecorator/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/development/PythonDecorator"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-blest215-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

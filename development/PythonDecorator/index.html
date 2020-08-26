@@ -1,0 +1,851 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Developing Service Agent using Python Decorators - Blest</title>
+<meta name="description" content="When I participated in different IoT testbed development project, using Java annotations were very impressive. Within appropriate annotations, information of the service agents were automatically registered to the server, and also UI was generated to let the people use.">
+
+
+  <meta name="author" content="author.name">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Blest">
+<meta property="og:title" content="Developing Service Agent using Python Decorators">
+<meta property="og:url" content="https://blest215.github.io/development/PythonDecorator/">
+
+
+  <meta property="og:description" content="When I participated in different IoT testbed development project, using Java annotations were very impressive. Within appropriate annotations, information of the service agents were automatically registered to the server, and also UI was generated to let the people use.">
+
+
+
+  <meta property="og:image" content="https://blest215.github.io/assets/images/PythonDecorator/adam-jaime-iciBcD8NOeA-unsplash.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-08-25T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://blest215.github.io/development/PythonDecorator/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "KyeongDeok Baek",
+      "url": "https://blest215.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Blest Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon.ico">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/assets/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/assets/icons/manifest.json">
+<link rel="mask-icon" href="/assets/icons/favicon-96x96.png" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/ko">
+          Blest
+          <span class="site-subtitle">과학자가 되고 싶었던 대학원생의 공학 연구 이야기</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              
+              <a href="/ko/about/">About</a>
+            </li><li class="masthead__menu-item">
+              
+              <a href="/ko/cv/">CV</a>
+            </li><li class="masthead__menu-item">
+              
+              <a href="/ko/posts/">Posts</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="
+  background-image: 
+  url('/assets/images/PythonDecorator/adam-jaime-iciBcD8NOeA-unsplash.jpg');"
+>
+  
+    <!--<img src="/assets/images/PythonDecorator/adam-jaime-iciBcD8NOeA-unsplash.jpg" alt="Developing Service Agent using Python Decorators" class="page__hero-image">-->
+  
+  
+    <span class="page__hero-caption"><a href="https://unsplash.com/photos/iciBcD8NOeA">Photo by Adam Jaime on Unsplash</a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/profile.jpg" alt="author.name" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">KyeongDeok Baek</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        
+        <p>Ph.D. candidate in <i>Web Engineering and Service Computing Lab, School of Computing, Korea Advanced Institute of Science and Technology (KAIST)</i></p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Daejeon, Republic of Korea</span>
+        </li>
+      
+
+      
+      <li>
+        <a href="mailto:blest215@kaist.ac.kr">
+          <meta itemprop="email" content="blest215@kaist.ac.kr" />
+          <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+        </a>
+      </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+        <li>
+          <a href="https://blest215.github.io" itemprop="url">
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span>
+          </a>
+        </li>
+      
+
+      
+      <li>
+        <a href="https://github.com/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+        </a>
+      </li>
+      
+
+      
+      <li>
+        <a href="https://www.linkedin.com/in/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
+        </a>
+      </li>
+      
+
+      
+      <li>
+        <a href="https://steamcommunity.com/id/blest215" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <i class="fab fa-fw fa-steam" aria-hidden="true"></i><span class="label">Steam</span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Developing Service Agent using Python Decorators">
+    <meta itemprop="description" content="When I participated in different IoT testbed development project, using Java annotations were very impressive. Within appropriate annotations, information of the service agents were automatically registered to the server, and also UI was generated to let the people use.">
+    <meta itemprop="datePublished" content="2020-08-25T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Developing Service Agent using Python Decorators
+</h1>
+          <p id="page-subtitle" class="page__subtitle" itemprop="description">Managing preprocess and meta-information of function and class using decorators
+</p>
+          <p class="page__meta">
+          
+          <i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+
+          
+          <span style="float: right;">
+          
+
+
+
+Read this page in <a href="/ko/development/PythonDecorator/" >한국어</a>
+
+          </span>
+          </p>
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#function-pre-processing-and-post-processing-by-using-decorators">Function pre-processing and post-processing by using decorators</a>
+    <ul>
+      <li><a href="#maintain-docstring">Maintain docstring</a></li>
+      <li><a href="#classs-method-decoration">Class’s method decoration</a></li>
+      <li><a href="#example-authentication_required">Example: authentication_required</a></li>
+      <li><a href="#decorator-with-input">Decorator with input</a></li>
+      <li><a href="#pass-variable-from-decorator-to-function">Pass variable from decorator to function</a></li>
+      <li><a href="#example-resource_required">Example: resource_required</a></li>
+    </ul>
+  </li>
+  <li><a href="#meta-information-decorator-for-functions-and-classes">Meta-information decorator for functions and classes</a>
+    <ul>
+      <li><a href="#class-decoration">Class decoration</a></li>
+      <li><a href="#example-service-agent">Example: Service Agent</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>When I participated in different IoT testbed development project, using Java annotations were very impressive. Within appropriate annotations, information of the service agents were automatically registered to the server, and also UI was generated to let the people use.</p>
+
+<p>So, I want to use such functionalities in our lab’s IoT testbed development, for managing meta-information of agents. And since our project use Python, now I’m trying to use decorator.</p>
+
+<p>For now, I used descorators for (1) applying pre-processing and post-processing to the functions and (2) writing meta-information of functions and classes, as followings.</p>
+
+<h2 id="function-pre-processing-and-post-processing-by-using-decorators">Function pre-processing and post-processing by using decorators</h2>
+
+<p>This is the common form of decorator. When you want to do some pre-processing or post-processing to multiple functions, you can use decorator to decorate the functions.</p>
+
+<p>Basic usage is like below. Decorator receives function as an argument and return a new function that wraps the given function. Then Python interpreter overrides function body with the function that decorator returns, when it defines the function.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"pre_processing"</span><span class="p">)</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"post_processing"</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">result</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">():</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"function"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">function_to_decorate</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"pre_processing"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"function"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">"post_processing"</span>
+</code></pre></div></div>
+
+<h3 id="maintain-docstring">Maintain docstring</h3>
+
+<p>Using decorator purely, function’s docstrings will be erased. You can fix this by using <code class="language-plaintext highlighter-rouge">wraps</code> decorator.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="o">@</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">pre_processing</span><span class="p">()</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="n">post_processing</span><span class="p">()</span>
+		<span class="k">return</span> <span class="n">result</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">():</span>
+	<span class="s">""" function docstring """</span>
+	<span class="n">something</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">function_to_decorate</span><span class="p">.</span><span class="n">__doc__</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">""" function docstring """</span>
+</code></pre></div></div>
+
+<h3 id="classs-method-decoration">Class’s method decoration</h3>
+
+<p>For our IoT testbed, we define agents as classes and the functionalities provided by agents are defined as methods. So decorators needed to decorator methods that has the <code class="language-plaintext highlighter-rouge">self</code> argument, and decorators can deal with certain arguments.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">pre_processing</span><span class="p">()</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="n">post_processing</span><span class="p">()</span>
+		<span class="k">return</span> <span class="n">result</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+	<span class="o">@</span><span class="n">decorator</span>
+	<span class="k">def</span> <span class="nf">method_to_decorate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">something</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="example-authentication_required">Example: authentication_required</h3>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">authentication_required</code>, <code class="language-plaintext highlighter-rouge">authorization_required</code> decorators were developed for our testbed. As its names indicates, those decorators perform authentication or authorization and returns exception if it fails.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">authentication_required</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">check_authentication</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">authentication</span><span class="p">()</span>
+		<span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s">'success'</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="n">AuthenticationException</span>
+	<span class="k">return</span> <span class="n">check_authentication</span>
+</code></pre></div></div>
+
+<h3 id="decorator-with-input">Decorator with input</h3>
+
+<p>Moreover, decorators may receive input argument and process according to the inputs. For this, definition of decorator becomes one step deeper.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">arguments</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+		<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+			<span class="n">pre_processing</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+			<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+			<span class="n">post_processing</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">result</span>
+		<span class="k">return</span> <span class="n">processing</span>
+	<span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div></div>
+
+<h3 id="pass-variable-from-decorator-to-function">Pass variable from decorator to function</h3>
+
+<p>Decorators can pass variable to function after do some pre-process. There are two ways for this: (1) overriding function’s argument or (2) add value to <code class="language-plaintext highlighter-rouge">kwargs</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>  <span class="c1"># override the argument
+</span>	<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">kwargs</span><span class="p">[</span><span class="s">"key"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+		<span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">processing</span>
+
+<span class="o">@</span><span class="n">decorator</span>
+<span class="k">def</span> <span class="nf">function_to_decorate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s">"key"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h3 id="example-resource_required">Example: resource_required</h3>
+
+<p>In out testbed, we developed a decorator <code class="language-plaintext highlighter-rouge">resource_required</code>. It receives description of required resource for the agent. Then it discovers and binds it and pass the information for controlling the resource, to the function. After using the resource, decorator can unbind/release the resource automatically.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">resource_required</span><span class="p">(</span><span class="n">resource_description</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+		<span class="k">def</span> <span class="nf">processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+			<span class="n">resource</span><span class="p">,</span> <span class="n">success</span> <span class="o">=</span> <span class="n">bind_resource</span><span class="p">(</span><span class="n">resource_description</span><span class="p">)</span>
+			
+			<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+				<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+				<span class="n">unbind_resource</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">raise</span> <span class="n">ResourceBindFailedException</span>
+
+<span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+	<span class="o">@</span><span class="n">resource_required</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">'localhost:8001'</span><span class="p">)</span>
+	<span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+		<span class="n">resource</span><span class="p">.</span><span class="n">utilize</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Decorators can be defined in a form of class, but skip that since we haven’t used it for this testbed development.</p>
+
+<hr />
+
+<h2 id="meta-information-decorator-for-functions-and-classes">Meta-information decorator for functions and classes</h2>
+
+<p>It was great to do pre-processing and post-processing using decorators, I also wanted to add meta-information to functions and classes automatically. After some searching, I succeed it with decorators.</p>
+
+<p>In this case, decorator should work at definition phase, and not execution phase, so grammar becomes a little bit different. Decorator returns function itself instead of ‘a new wrapper function that execute original function and returns the result’.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">meta_info_decorator</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+		<span class="n">f</span><span class="p">.</span><span class="n">meta_info</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+			<span class="s">"description"</span><span class="p">:</span> <span class="n">description</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="n">f</span>
+	<span class="k">return</span> <span class="n">decorator</span>
+
+<span class="o">@</span><span class="n">meta_info_decorator</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">"function"</span><span class="p">,</span> 
+    <span class="n">description</span><span class="o">=</span><span class="s">"example description"</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+	<span class="k">pass</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">function</span><span class="p">.</span><span class="n">meta_info</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'function'</span><span class="p">,</span> <span class="s">'description'</span><span class="p">:</span> <span class="s">'example description'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="class-decoration">Class decoration</h3>
+
+<p>Furthermore, not only functions but also classes can be decorated. Grammar is same as functions.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">class_decorator</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+		<span class="n">cls</span><span class="p">.</span><span class="n">meta_info</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+			<span class="s">"description"</span><span class="p">:</span> <span class="n">description</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="n">cls</span>
+	<span class="k">return</span> <span class="n">decorator</span>
+
+<span class="o">@</span><span class="n">class_decorator</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">"class"</span><span class="p">,</span> 
+    <span class="n">description</span><span class="o">=</span><span class="s">"example description"</span>
+<span class="p">)</span>
+<span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+	<span class="k">pass</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Agent</span><span class="p">.</span><span class="n">meta_info</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'class'</span><span class="p">,</span> <span class="s">'description'</span><span class="p">:</span> <span class="s">'example description'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="example-service-agent">Example: Service Agent</h3>
+
+<p>Finally, the example of our service agent becomes like below, as a summary of above usages.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">meta_info</span><span class="p">(</span>
+	<span class="n">name</span><span class="o">=</span><span class="s">"LightingServiceAgent"</span><span class="p">,</span>
+	<span class="n">description</span><span class="o">=</span><span class="s">"Service agent for lighting of the testbed"</span><span class="p">,</span>
+	<span class="n">url</span><span class="o">=</span><span class="s">"localhost:8000"</span>
+<span class="p">)</span>
+<span class="k">class</span> <span class="nc">LightingServiceAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+	<span class="o">@</span><span class="n">authorization_required</span>
+	<span class="o">@</span><span class="n">resource_required</span><span class="p">(</span>
+		<span class="nb">type</span><span class="o">=</span><span class="s">"LightingDevice"</span>
+	<span class="p">)</span>
+	<span class="k">def</span> <span class="nf">turnon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">):</span>
+		<span class="n">resource</span><span class="p">.</span><span class="n">turnon</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>It was great to automate many functionalities clearly.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        <h4 class="page__meta-title"></h4>
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      
+      <a href="/tags/python" class="page__taxonomy-item" rel="tag">Python</a><span class="sep">, </span>
+    
+      
+      
+      
+      <a href="/tags/service" class="page__taxonomy-item" rel="tag">Service</a><span class="sep">, </span>
+    
+      
+      
+      
+      <a href="/tags/testbed" class="page__taxonomy-item" rel="tag">Testbed</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      
+      <a href="/categories/development" class="page__taxonomy-item" rel="tag">Development</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-08-25T00:00:00+00:00">August 25, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+  <h4 class="page__share-title">Share on</h4>
+  <a href="https://twitter.com/intent/tweet?text=Developing+Service+Agent+using+Python+Decorators%20https%3A%2F%2Fblest215.github.io%2Fdevelopment%2FPythonDecorator%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblest215.github.io%2Fdevelopment%2FPythonDecorator%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fblest215.github.io%2Fdevelopment%2FPythonDecorator%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/paper/ICWE2017/" class="pagination--pager" title="Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/bonfire.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        
+        <a href="/paper/ICWE2017/" rel="permalink">Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  8 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is my first paper published, that I have presented at International Conference on Web Engineering (ICWE) 2017 conference when I was in the second year o...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <li><strong>팔로우:</strong></li>
+
+    
+      
+        
+          <li><a href="https://github.com/Blest215" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/blest215/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 KyeongDeok Baek. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://blest215.github.io/development/PythonDecorator/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/development/PythonDecorator"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-blest215-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
