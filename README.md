@@ -157,12 +157,13 @@ OpenAI Responses API로 초안만 생성하며, 공개에는 별도 검토·승�
 
 ## 배포
 
-push와 pull request는 테스트·빌드만 수행합니다. 배포는 수동 실행합니다.
+`source` 브랜치에 push하면 테스트·빌드 성공 후 GitHub Pages에 자동 배포합니다. 다른 브랜치의 push와 pull request는 테스트·빌드만 수행합니다. 같은 브랜치의 워크플로는 동시에 실행하지 않으며, 진행 중인 실행은 취소하지 않습니다.
 
 1. 저장소 Settings → Pages → Source를 **GitHub Actions**로 설정합니다.
-2. 소스와 `pnpm-lock.yaml`을 커밋·푸시합니다.
-3. Actions → **Build and publish research blog** → Run workflow에서 대상 브랜치를 선택하고 `deploy`를 켭니다.
-4. 워크플로의 테스트·빌드·배포 결과를 확인합니다.
+2. 소스와 `pnpm-lock.yaml`을 `source` 브랜치에 커밋·푸시합니다.
+3. Actions → **Build and publish research blog**에서 테스트·빌드·배포 결과를 확인합니다.
+
+수동 재배포는 Run workflow에서 `source` 브랜치를 선택하고 `deploy`를 켭니다. 수동 실행에서 `deploy`를 끄면 검사만 수행합니다. 커밋만 하고 push하지 않으면 워크플로가 실행되지 않습니다.
 
 ## 공개 범위와 관리
 
