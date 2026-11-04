@@ -1,0 +1,27 @@
+---
+import { cvText, cvPeriod } from '../lib/cv.mjs';
+const { section, lang } = Astro.props;
+const t = (value) => cvText(value, lang);
+const educationLabel = (entry) => [entry.school, entry.department, entry.lab, entry.degree].filter(Boolean).map(t).join(' · ');
+const experienceLabel = (entry) => [entry.project, entry.organization, entry.department, entry.course, entry.role].filter(Boolean).map(t).join(' · ');
+---
+<section class="cv-section" id={section.id}>
+  <h2>{t(section.title)}</h2>
+  <div class="prose">
+    {section.type === 'publications' ? section.groups.map(group => <>
+      <h3>{t(group.title)}</h3>
+      <ul>{section.items.filter(item => item.group === group.id).map(item => <li>
+        {item.year}, {t(item.authorRole)}{item.publicationType && <>, {t(item.publicationType)}</>}, “<span class:list={{'cv-featured': item.featured}}>{item.url ? <a href={item.url}>{t(item.title)}</a> : t(item.title)}</span>”, {t(item.venue)}{item.award && <> · {t(item.award)}</>}{item.impactFactor && <> (JCR {item.impactFactor.year} IF: {item.impactFactor.value})</>}
+        {item.details?.length > 0 && <ul>{item.details.map(detail => <li>{t(detail)}</li>)}</ul>}
+      </li>)}</ul>
+    </>) : <ul>{section.items.map(item => <li>
+      {section.type === 'education' && <><span class:list={{'cv-featured': item.featured}}>{educationLabel(item)}</span> <em class="cv-period">{cvPeriod(item)}</em></>}
+      {section.type === 'experience' && <><span class:list={{'cv-featured': item.featured}}>{experienceLabel(item)}</span> <em class="cv-period">{cvPeriod(item)}</em></>}
+      {section.type === 'skills' && <>{t(item.category)}: {item.values.map(value => t(value)).join(', ')}</>}
+      {section.type === 'awards' && <>{item.year}{item.toYear != null && <>–{item.toYear}</>} {t(item.event)} — {t(item.distinction)}</>}
+      {section.type === 'patents' && <>{item.year}, {t(item.inventorRole)}, {t(item.status)}, “{item.url ? <a href={item.url}>{t(item.title)}</a> : t(item.title)}”, {t(item.jurisdiction)}</>}
+      {section.type === 'service' && <>{item.year} {t(item.organization)} — {t(item.role)} · {t(item.event)}</>}
+      {item.details?.length > 0 && <ul>{item.details.map(detail => <li>{t(detail)}</li>)}</ul>}
+    </li>)}</ul>}
+  </div>
+</section>

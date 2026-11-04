@@ -1,0 +1,68 @@
+---
+import site from '../data/site.json';
+import { href } from '../lib/content.mjs';
+import '../styles/site.css';
+const { lang = 'ko', title = '', description = site.description[lang], route = '', alternate = null, noindex = false } = Astro.props;
+const english = lang === 'en';
+const copy = site.copy[lang];
+const nav = site.navigation;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ga = site.analytics.measurementId;
+const analytics = import.meta.env.PROD && /^G-[A-Z0-9]+$/.test(ga);
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{title ? `${title} — ` : ''}{site.name[lang]} · {site.title}</title>
+    <meta name="description" content={description} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex" />}
+    {alternate && <link rel="alternate" hreflang={english ? 'ko' : 'en'} href={new URL(alternate, Astro.site)} />}
+    {!noindex && <link rel="alternate" hreflang={lang} href={canonical} />}
+    <meta property="og:type" content={route.startsWith('posts/') ? 'article' : 'website'} />
+    <meta property="og:title" content={title || site.name[lang]} />
+    <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:locale" content={english ? 'en_US' : 'ko_KR'} />
+    <link rel="icon" href={site.resources.favicon} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{copy.skipContent}</a>
+    <header class="site-header wrap">
+      <a class="brand" href={href(lang)} aria-label={copy.home}><span>{site.title}<small>{site.brand.tagline}</small></span></a>
+      <nav aria-label={copy.mainNavigation}>
+        {nav.map(({route: url, label}) => <a href={href(lang, url)} data-event={url === 'cv' ? 'cv_click' : undefined} aria-current={route === url || route.startsWith(`${url}/`) ? 'page' : undefined}>{label[lang]}</a>)}
+      </nav>
+      <div class="language-switch" aria-label={copy.language}>
+        <a href={noindex ? '/' : english ? (alternate || '/') : Astro.url.pathname} lang="ko" aria-current={!english ? 'true' : undefined} data-event="language_switch" data-language="ko">KO</a>
+        <span aria-hidden="true">/</span>
+        {english || alternate ? <a href={english ? Astro.url.pathname : alternate} lang="en" aria-current={english ? 'true' : undefined} data-event="language_switch" data-language="en">EN</a> : <span class="unavailable" title={copy.englishPending}>EN</span>}
+      </div>
+    </header>
+    <main id="main" class="wrap"><slot /></main>
+    <footer class="site-footer wrap">
+      <p>© {new Date().getFullYear()} {site.name[lang]}<br /><span>{copy.footer}</span></p>
+      <div><a href={`mailto:${site.email}`}>{site.contactLabels.email} ↗</a><a href={site.github}>{site.contactLabels.github} ↗</a><a href={site.linkedin}>{site.contactLabels.linkedin} ↗</a></div>
+    </footer>
+    {analytics && <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga}`}></script>
+      <script is:inline define:vars={{ ga, lang }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', ga, { content_language: lang });
+        document.addEventListener('click', function(event) {
+          const element = event.target instanceof Element ? event.target.closest('[data-event]') : null;
+          if (!element) return;
+          gtag('event', element.dataset.event, { content_language: lang, target_language: element.dataset.language, link_url: element.getAttribute('href') || undefined });
+        });
+      </script>
+    </>}
+    <script>
+      document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
+    </script>
+  </body>
+</html>

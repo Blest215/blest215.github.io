@@ -1,0 +1,13 @@
+---
+import { dateLabel } from '../lib/content.mjs';
+import site from '../data/site.json';
+const { posts, lang } = Astro.props;
+---
+<div class="post-list">
+  {posts.map(post => <a class="post-row" href={post.url}>
+    <time datetime={post.date}>{dateLabel(post.date, lang)}</time>
+    <div><span class="eyebrow">{post.category}</span><h3>{post.title}</h3><p>{post.subtitle}</p></div>
+    <span class="post-arrow" aria-hidden="true">↗</span>
+  </a>)}
+  {posts.length === 0 && <p class="empty-state">{site.copy[lang].emptyPosts}</p>}
+</div>

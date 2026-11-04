@@ -1,0 +1,16 @@
+{
+  "2020-07-29-ICWE2017": {
+    "status": "legacy",
+    "sourceHash": "d493f188989f3ce799b1326753a6c9130d573ebe519f8c337cc269a0fe24c112",
+    "translationHash": "f7628be918f7e5e8bbcbb2e1b7c6c879eb4e9cb7fbafb6251b0cb9cabe158add",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "2020-08-25-PythonDecorator": {
+    "status": "legacy",
+    "sourceHash": "26fad5a390240aa8df40cd496e0e28244a554d61cbd5b7fece1ef21fbb73bd75",
+    "translationHash": "d4998786f992435c10d0c944b2fa3ebdd520dc00d8ba5c2d0cf8c76582b1db9d",
+    "reviewer": null,
+    "reviewedAt": null
+  }
+}

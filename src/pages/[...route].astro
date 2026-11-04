@@ -1,0 +1,67 @@
+---
+import Shell from '../layouts/Shell.astro';
+import PostList from '../components/PostList.astro';
+import CvSection from '../components/CvSection.astro';
+import site from '../data/site.json';
+import cv from '../data/cv.json';
+import { getPosts, href, dateLabel } from '../lib/content.mjs';
+import { cvText } from '../lib/cv.mjs';
+
+export function getStaticPaths() {
+  return ['ko', 'en'].flatMap(lang => {
+    const posts = getPosts(lang);
+    const pages = ['', 'about', 'posts', 'cv'].map(kind => ({ params: { route: [lang === 'en' ? 'en' : '', kind].filter(Boolean).join('/') || undefined }, props: { lang, kind, post: null } }));
+    return [...pages, ...posts.map(post => ({ params: { route: [lang === 'en' ? 'en' : '', 'posts', post.slug].filter(Boolean).join('/') }, props: { lang, kind: 'post', post } }))];
+  });
+}
+const { lang, kind, post } = Astro.props;
+const en = lang === 'en';
+const copy = site.copy[lang];
+const posts = getPosts(lang);
+const otherLang = en ? 'ko' : 'en';
+const route = kind === 'post' ? `posts/${post.slug}` : kind;
+const alternate = kind !== 'post' || getPosts(otherLang).some(p => p.slug === post.slug) ? href(otherLang, route) : null;
+const titles = { '': '', ...Object.fromEntries(site.navigation.map(item => [item.route, item.label[lang]])), cv: copy.cvTitle, post: post?.title };
+const title = titles[kind];
+const description = kind === 'post' ? post.subtitle || post.title : site.description[lang];
+---
+<Shell lang={lang} title={title} description={description} route={route} alternate={alternate}>
+  {kind === '' && <>
+    <section class:list={["home-hero", {"has-background": !!site.resources.homeBackground}]} style={site.resources.homeBackground ? `background-image: linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.12)), url(${JSON.stringify(site.resources.homeBackground)})` : undefined}>
+      <div class="hero-copy"><p class="eyebrow">{site.prefix[lang]}</p>
+        <h1>{site.name[lang]}<span class="name-alternate">{site.name[otherLang]}</span></h1>
+        <p class="hero-intro">{site.description[lang]}</p>
+        <div class="hero-actions">{site.navigation.map(item => <a class="text-link" href={href(lang, item.route)} data-event={item.route === "cv" ? "cv_click" : undefined}>{item.label[lang]} →</a>)}</div>
+      </div>
+      {site.resources.profileImage && <img class="profile-photo" src={site.resources.profileImage} alt={site.name[lang]} width="128" height="128" />}
+    </section>
+    <section class="research-summary"><h2>{copy.researchInterests}</h2><p>{site.topics.map((topic, i) => <><span>{topic}</span>{i < site.topics.length - 1 && <span class="topic-separator" aria-hidden="true"> / </span>}</>)}</p></section>
+    <section class="section"><div class="section-heading"><h2>{copy.recentWriting}</h2><a class="text-link" href={href(lang, 'posts')}>{copy.allWriting} →</a></div><PostList posts={posts.slice(0, 4)} lang={lang} /></section>
+  </>}
+
+  {kind === 'about' && <>
+    <header class="page-heading"><p class="eyebrow">{copy.aboutEyebrow}</p><h1>{copy.aboutTitle}</h1><p>{copy.aboutDescription}</p></header>
+    <div class="about-grid">
+      {site.resources.profileImage && <img class="profile-photo about-photo" src={site.resources.profileImage} alt={site.name[lang]} width="128" height="128" />}
+      <div class="prose"><h2>{site.name[lang]}</h2>{copy.aboutParagraphs.map(text => <p>{text}</p>)}<a class="text-link" href={href(lang, 'cv')} data-event="cv_click">{copy.viewCV} →</a></div>
+    </div>
+  </>}
+
+  {kind === 'posts' && <>
+    <header class="page-heading"><p class="eyebrow">{copy.postsEyebrow}</p><h1>{copy.postsTitle}</h1><p>{copy.postsDescription}</p></header>
+    <PostList posts={posts} lang={lang} />
+  </>}
+
+  {kind === 'cv' && <>
+    <header class="page-heading cv-heading"><div><p class="eyebrow">{copy.cvEyebrow}</p><h1>{site.name[lang]}</h1></div><button class="button print-button" data-print data-event="cv_print">{copy.cvPrint} ↗</button></header>
+    <div class="cv-layout"><nav class="cv-nav" aria-label={copy.cvSections}>{cv.sections.map(section => <a href={`#${section.id}`}>{cvText(section.title, lang)}</a>)}</nav><div>{cv.sections.map(section => <CvSection section={section} lang={lang} />)}</div></div>
+  </>}
+
+  {kind === 'post' && <article class="article">
+    <header class="article-heading"><a class="text-link" href={href(lang, 'posts')}>← {copy.allWriting}</a><p class="eyebrow accent">{post.category}</p><h1>{post.title}</h1><p class="article-subtitle">{post.subtitle}</p><div class="article-meta"><time datetime={post.date}>{dateLabel(post.date, lang)}</time><span>·</span><span>{copy.minutesRead.replace('{minutes}', String(post.minutes))}</span></div></header>
+    {en && post.status === 'legacy' && <p class="archive-note">{copy.legacyTranslation}</p>}
+    {!en && !alternate && <p class="archive-note">{copy.translationPending}</p>}
+    <div class="prose article-body" set:html={post.html} />
+    <footer class="article-footer"><div class="tags">{post.tags.map(tag => <span>{tag}</span>)}</div>{alternate && <a class="text-link" href={alternate} data-event="language_switch" data-language={otherLang}>{copy.readOtherLanguage} ↗</a>}</footer>
+  </article>}
+</Shell>

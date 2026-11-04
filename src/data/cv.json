@@ -1,0 +1,1299 @@
+{
+  "sections": [
+    {
+      "id": "work-experiences",
+      "title": {
+        "ko": "Work Experiences",
+        "en": "Work Experiences"
+      },
+      "type": "experience",
+      "items": [
+        {
+          "organization": {
+            "ko": "대전과학고등학교",
+            "en": "Daejeon Science High School"
+          },
+          "role": {
+            "ko": "시간강사",
+            "en": "Part-time Lecturer"
+          },
+          "from": "2026.03",
+          "to": null
+        },
+        {
+          "organization": {
+            "ko": "한국과학기술원 (KAIST)",
+            "en": "Korea Advanced Institute of Science and Technology (KAIST)"
+          },
+          "role": {
+            "ko": "박사후연구원",
+            "en": "Postdoctoral Researcher"
+          },
+          "from": "2024.03",
+          "to": null,
+          "department": {
+            "ko": "정보전자연구소",
+            "en": "Institute of Information Electronics"
+          }
+        },
+        {
+          "organization": {
+            "ko": "올제텍",
+            "en": "Olzetek"
+          },
+          "role": {
+            "ko": "CUop 산학협력 학생 인턴",
+            "en": "CUop (Company-University Cooperation) Student Internship"
+          },
+          "from": "2015.07",
+          "to": "2015.08",
+          "details": [
+            {
+              "ko": "제품의 PCI 드라이버 개발",
+              "en": "Developed a PCI driver for a product."
+            }
+          ]
+        },
+        {
+          "organization": {
+            "ko": "한국전자통신연구원 (ETRI)",
+            "en": "Electronics and Telecommunications Research Institute (ETRI)"
+          },
+          "role": {
+            "ko": "학생 인턴",
+            "en": "Student Internship"
+          },
+          "from": "2014.07",
+          "to": "2014.08",
+          "details": [
+            {
+              "ko": "보안 관점에서 사물인터넷 운영체제에 관한 조사 논문 작성",
+              "en": "Wrote a short survey paper on operating systems for the Internet of Things from a security perspective."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "title": {
+        "ko": "Education",
+        "en": "Education"
+      },
+      "type": "education",
+      "items": [
+        {
+          "school": {
+            "ko": "한국과학기술원 (KAIST)",
+            "en": "Korea Advanced Institute of Science and Technology (KAIST)"
+          },
+          "department": {
+            "ko": "전산학부",
+            "en": "School of Computing"
+          },
+          "degree": {
+            "ko": "석박사통합과정 (공학박사)",
+            "en": "M.S. & Ph.D. Integrated Program"
+          },
+          "from": "2016.03",
+          "to": "2024.02",
+          "featured": true,
+          "details": [
+            {
+              "ko": "박사학위논문: Enhancing Physical Environment Interactive Services by Modeling and Learning Uncertain Factors",
+              "en": "Dissertation: Enhancing Physical Environment Interactive Services by Modeling and Learning Uncertain Factors"
+            }
+          ]
+        },
+        {
+          "school": {
+            "ko": "한국과학기술원 (KAIST)",
+            "en": "Korea Advanced Institute of Science and Technology (KAIST)"
+          },
+          "department": {
+            "ko": "전산학부",
+            "en": "School of Computing"
+          },
+          "degree": {
+            "ko": "공학사",
+            "en": "B.S."
+          },
+          "from": "2012.02",
+          "to": "2016.02"
+        },
+        {
+          "school": {
+            "ko": "대전과학고등학교",
+            "en": "Daejeon Science High School"
+          },
+          "from": "2010.02",
+          "to": "2012.02"
+        }
+      ]
+    },
+    {
+      "id": "publications",
+      "title": {
+        "ko": "Publications",
+        "en": "Publications"
+      },
+      "type": "publications",
+      "groups": [
+        {
+          "id": "journals",
+          "title": "SCI(E) Journals"
+        },
+        {
+          "id": "international",
+          "title": "International Conferences"
+        },
+        {
+          "id": "domestic",
+          "title": "Domestic"
+        }
+      ],
+      "items": [
+        {
+          "group": "journals",
+          "year": 2025,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "Hierarchical Decentralized Autoscaling for Spatio-temporal Load Bursts",
+          "venue": "IEEE TSC",
+          "impactFactor": {
+            "year": 2024,
+            "value": 5.8
+          }
+        },
+        {
+          "group": "journals",
+          "year": 2025,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Effective Selection of Public IoT Services by Learning Uncertain Environmental Factors Using Fingerprint Attention",
+          "venue": "Applied Intelligence",
+          "impactFactor": {
+            "year": 2024,
+            "value": 3.5
+          }
+        },
+        {
+          "group": "journals",
+          "year": 2025,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "MultiFedRL: Efficient Training of Service Agents for Heterogeneous Internet of Things Environments",
+          "venue": "IEEE IoT Journal",
+          "impactFactor": {
+            "year": 2024,
+            "value": 8.9
+          }
+        },
+        {
+          "group": "journals",
+          "year": 2024,
+          "authorRole": {
+            "ko": "제3저자",
+            "en": "3rd author"
+          },
+          "title": "Personalized User Models in a Real-world Edge Computing Environment: A Peer-to-peer Federated Learning Framework",
+          "venue": "JWE",
+          "impactFactor": {
+            "year": 2024,
+            "value": 1.0
+          }
+        },
+        {
+          "group": "journals",
+          "year": 2023,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "Fully Decentralized Horizontal Autoscaling for Burst of Load in Fog Computing",
+          "venue": "JWE",
+          "impactFactor": {
+            "year": 2023,
+            "value": 0.7
+          }
+        },
+        {
+          "group": "journals",
+          "year": 2022,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Dynamic and Effect-driven Output Service Selection for IoT Environments Using Deep Reinforcement Learning",
+          "venue": "IEEE IoT Journal",
+          "impactFactor": {
+            "year": 2022,
+            "value": 10.6
+          }
+        },
+        {
+          "group": "journals",
+          "year": 2020,
+          "authorRole": {
+            "ko": "교신저자",
+            "en": "Corresponding author"
+          },
+          "title": "A Human-centric and Environment-aware Testing Framework for Providing Safe and Reliable Cyber-Physical System Services",
+          "venue": "JWE",
+          "impactFactor": {
+            "year": 2020,
+            "value": 0.617
+          }
+        },
+        {
+          "group": "international",
+          "year": 2026,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "LANCE: Linguistic Agent Network for Cooperative Ensemble of Heterogeneous Physical AI Services",
+          "venue": "IEEE ICWS",
+          "publicationType": "Regular"
+        },
+        {
+          "group": "international",
+          "year": 2025,
+          "authorRole": {
+            "ko": "제3저자",
+            "en": "3rd author"
+          },
+          "title": "Troubleshooting Microservices with Heterogeneous Graph Neural Network",
+          "venue": "ICWE",
+          "publicationType": "Poster"
+        },
+        {
+          "group": "international",
+          "year": 2025,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "WYSIMWYG: Simulation-based Decision Support for Data Distribution of Hyperlocal Services in Edge Cloud Environments",
+          "venue": "CHI",
+          "publicationType": "Late-Breaking Work"
+        },
+        {
+          "group": "international",
+          "year": 2024,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "Effective Model Replacement for Solving Objective Mismatches in Pre-trained Model Compositions",
+          "venue": "APSEC",
+          "publicationType": "Regular"
+        },
+        {
+          "group": "international",
+          "year": 2024,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "HiDRA: A Hierarchical Decentralized Reactive Autoscaler for Spatio-temporal Bursts of Load",
+          "venue": "IEEE ICWS",
+          "publicationType": "Work-in-progress"
+        },
+        {
+          "group": "international",
+          "year": 2024,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "EPFLU: Efficient Peer-to-peer Federated Learning for Personalized User Models in Edge-Cloud Environments",
+          "venue": "BECS",
+          "publicationType": "Workshop"
+        },
+        {
+          "group": "international",
+          "year": 2023,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Learning-based Quality of Experience Prediction for Selecting Web of Things Services in Public Spaces",
+          "venue": "ICWE",
+          "publicationType": "Ph.D. Symposium"
+        },
+        {
+          "group": "international",
+          "year": 2023,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "DESA: Decentralized Self-Adaptive Horizontal Autoscaling for Bursts of Load in Fog Computing",
+          "venue": "BECS",
+          "publicationType": "Workshop"
+        },
+        {
+          "group": "international",
+          "year": 2020,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "Cache-sharing Distributed Service Registry for Highly Dynamic V2X Environments",
+          "venue": "IEEE COMPSAC",
+          "publicationType": "Fast abstract"
+        },
+        {
+          "group": "international",
+          "year": 2019,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Effect-driven Dynamic Selection of Physical Media for Visual IoT Services using Reinforcement Learning",
+          "venue": "IEEE ICWS",
+          "publicationType": "Regular"
+        },
+        {
+          "group": "international",
+          "year": 2019,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "Environment-aware and Human-centric Software Testing Framework for Cyber-Physical Systems",
+          "venue": "MATWEP",
+          "publicationType": "Workshop"
+        },
+        {
+          "group": "international",
+          "year": 2019,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "VR-Powered Scenario-Based Testing for Visual and Acoustic Web of Things Services",
+          "venue": "ICWE",
+          "publicationType": "Demo"
+        },
+        {
+          "group": "international",
+          "year": 2019,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Effect-Driven Selection of Web of Things Services in Cyber-Physical Systems Using Reinforcement Learning",
+          "venue": "ICWE",
+          "publicationType": "Ph.D. Symposium"
+        },
+        {
+          "group": "international",
+          "year": 2018,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Spatio-Cohesive Service Selection Using Machine Learning in Dynamic IoT Environments",
+          "venue": "ICWE",
+          "publicationType": "Short"
+        },
+        {
+          "group": "international",
+          "year": 2017,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments",
+          "venue": "ICWE",
+          "publicationType": "Regular"
+        },
+        {
+          "group": "domestic",
+          "year": 2021,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Service Selection Using Multi-agent Reinforcement Learning to Minimize Physical Interference Between Internet of Things Services",
+          "venue": "KSC",
+          "publicationType": "Regular"
+        },
+        {
+          "group": "domestic",
+          "year": 2020,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Development of Platform-independent IoT Service Framework for Solving Heterogeneity Problem",
+          "venue": "KSC",
+          "publicationType": "Regular"
+        },
+        {
+          "group": "domestic",
+          "year": 2019,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "An Optimization Method for Perceived Quality of Services in Service-oriented V2X Software Environments",
+          "venue": "Journal of KIISE"
+        },
+        {
+          "group": "domestic",
+          "year": 2019,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "VR-based Simulation for Evaluation of Quality of Visual Services in IoT Environments",
+          "venue": "KIISE TCP"
+        },
+        {
+          "group": "domestic",
+          "year": 2019,
+          "authorRole": {
+            "ko": "제2저자",
+            "en": "2nd author"
+          },
+          "title": "Optimizing Perceived Quality of Services in Service-oriented V2X Software Environments",
+          "venue": "KCSE",
+          "publicationType": "Regular",
+          "award": {
+            "ko": "우수논문상",
+            "en": "Best paper"
+          }
+        },
+        {
+          "group": "domestic",
+          "year": 2018,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "VR-based Simulation for Evaluating Service Quality of Visual Services in IoT Environments",
+          "venue": "KSC",
+          "publicationType": "Regular",
+          "award": {
+            "ko": "우수발표논문상",
+            "en": "Best presentation paper"
+          }
+        },
+        {
+          "group": "domestic",
+          "year": 2016,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Dynamic Discovery of Geographically Cohesive Services in Internet of Things Environments",
+          "venue": "Journal of KIISE"
+        },
+        {
+          "group": "domestic",
+          "year": 2016,
+          "authorRole": {
+            "ko": "제1저자",
+            "en": "1st author"
+          },
+          "title": "Dynamic Discovery of Geographically Cohesive Services in Internet of Things Environments",
+          "venue": "KCSE",
+          "publicationType": "Regular",
+          "award": {
+            "ko": "우수논문상",
+            "en": "Best paper"
+          }
+        }
+      ]
+    },
+    {
+      "id": "patents",
+      "title": {
+        "ko": "Patents",
+        "en": "Patents"
+      },
+      "type": "patents",
+      "items": [
+        {
+          "year": 2025,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "출원",
+            "en": "Application"
+          },
+          "title": "Method and Apparatus for Federated Learning based on Multi-dimensional Clustering",
+          "jurisdiction": {
+            "ko": "PCT",
+            "en": "PCT"
+          }
+        },
+        {
+          "year": 2025,
+          "inventorRole": {
+            "ko": "제3발명자",
+            "en": "3rd inventor"
+          },
+          "status": {
+            "ko": "출원",
+            "en": "Application"
+          },
+          "title": "Effective Model Replacement for Solving Objective Mismatches in Pre-trained Model Compositions",
+          "jurisdiction": {
+            "ko": "PCT",
+            "en": "PCT"
+          }
+        },
+        {
+          "year": 2023,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "등록",
+            "en": "Registration"
+          },
+          "title": "Electronic Device for Effect-driven Dynamic Media Selection for Visual IoT Service Using Reinforcement Learning and Operating Method Thereof",
+          "jurisdiction": {
+            "ko": "미국",
+            "en": "US"
+          }
+        },
+        {
+          "year": 2023,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "등록",
+            "en": "Registration"
+          },
+          "title": "Spatio-Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments",
+          "jurisdiction": {
+            "ko": "미국",
+            "en": "US"
+          }
+        },
+        {
+          "year": 2025,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "출원",
+            "en": "Application"
+          },
+          "title": "Method and Apparatus for Federated Learning based on Multi-dimensional Clustering",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        },
+        {
+          "year": 2025,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "출원",
+            "en": "Application"
+          },
+          "title": "Effective Model Replacement for Solving Objective Mismatches in Pre-trained Model Compositions",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        },
+        {
+          "year": 2023,
+          "inventorRole": {
+            "ko": "제3발명자",
+            "en": "3rd inventor"
+          },
+          "status": {
+            "ko": "출원",
+            "en": "Application"
+          },
+          "title": "Method and System for Decentralized Self-Adaptive Horizontal Autoscale for Bursts of Load in Fog Computing",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        },
+        {
+          "year": 2025,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "등록",
+            "en": "Registration"
+          },
+          "title": "Method and System for Effective Selection of Public IoT Services by Learning Environmental Factors Using Fingerprint Attention",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        },
+        {
+          "year": 2022,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "등록",
+            "en": "Registration"
+          },
+          "title": "Electronic Device For Effect-Driven Dynamic Selection of Physical Media For Visual IoT Service Using Reinforcement Learning And Operating Method Thereof",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        },
+        {
+          "year": 2021,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "등록",
+            "en": "Registration"
+          },
+          "title": "VR-powered Scenario-based Testing Method And Apparatus For Visual And Acoustic Web Of Things Service",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        },
+        {
+          "year": 2020,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "등록",
+            "en": "Registration"
+          },
+          "title": "Spatio-cohesive Service Discovery And Dynamic Service Handover For Distributed IoT Environments",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        },
+        {
+          "year": 2020,
+          "inventorRole": {
+            "ko": "제2발명자",
+            "en": "2nd inventor"
+          },
+          "status": {
+            "ko": "등록",
+            "en": "Registration"
+          },
+          "title": "Optimizing Perceived Quality Of Services By Utilizing Genetic Algorithm In Service-oriented V2X Software Environments",
+          "jurisdiction": {
+            "ko": "대한민국",
+            "en": "Republic of Korea"
+          }
+        }
+      ]
+    },
+    {
+      "id": "academic-experiences",
+      "title": {
+        "ko": "Academic Experiences",
+        "en": "Academic Experiences"
+      },
+      "type": "service",
+      "items": [
+        {
+          "year": 2027,
+          "organization": "ICSE",
+          "event": "49th IEEE/ACM International Conference on Software Engineering (Tool Demonstration and Data Showcase)",
+          "role": {
+            "ko": "프로그램위원",
+            "en": "Program Committee"
+          }
+        },
+        {
+          "year": 2026,
+          "organization": "ICST",
+          "event": "19th IEEE International Conference on Software Testing, Verification and Validation",
+          "role": {
+            "ko": "현장 등록 공동위원장",
+            "en": "Local Registration Co-Chair"
+          }
+        }
+      ]
+    },
+    {
+      "id": "research-projects",
+      "title": {
+        "ko": "Research Projects",
+        "en": "Research Projects"
+      },
+      "type": "experience",
+      "items": [
+        {
+          "organization": "NRF",
+          "role": {
+            "ko": "연구책임자",
+            "en": "Principal Investigator"
+          },
+          "from": "2025.06",
+          "to": "2028.05",
+          "project": "Multi-agent Cooperative Validation and Specialization for Enhancing Reliability of AI-based Services"
+        },
+        {
+          "organization": "NRF",
+          "role": {
+            "ko": "자문위원",
+            "en": "Advisory Committee Member"
+          },
+          "from": "2025.09",
+          "to": "2026.08",
+          "project": "Physical AI millimeter-wave Radar Module Development for Individual Environment-optimized AI Autonomous Vehicle Applications"
+        },
+        {
+          "organization": "NRF",
+          "role": {
+            "ko": "연구책임자",
+            "en": "Principal Investigator"
+          },
+          "from": "2024.09",
+          "to": "2025.08",
+          "project": "Methodology of Learning Uncertain Factors for Effective Provision of Ambient Interactive Services"
+        },
+        {
+          "organization": "IITP",
+          "role": {
+            "ko": "학생연구원·박사후연구원",
+            "en": "Student Researcher, Postdoctoral Researcher"
+          },
+          "from": "2020.07",
+          "to": "2025.05",
+          "project": "Development of Dependable and Highly Usable Big Data Platform, and Analysis and Prediction Services Technology in Edge Clouds"
+        },
+        {
+          "organization": "KAIA",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2021.04",
+          "to": "2022.12",
+          "project": "Research on an Edge Computing based AI Service Platform for Proactive Traffic Safety using Big Data"
+        },
+        {
+          "organization": "NRF",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2019.09",
+          "to": "2022.02",
+          "project": "Optimizing Effect Delivery and User Cognition of IoT Services Using Machine Learning and VR Technologies"
+        },
+        {
+          "organization": "NRF",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2017.09",
+          "to": "2020.12",
+          "project": "Development and On-the-fly Verification of System of Systems for Reliable and Intelligent CPS Applications"
+        },
+        {
+          "organization": "NRF",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2016.06",
+          "to": "2019.05",
+          "project": "User-centric Service Provision Using Fog Computing in Widely Distributed Internet of Things Environments"
+        },
+        {
+          "organization": "IITP",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2017.04",
+          "to": "2018.12",
+          "project": "Development of Autonomous IoT Collaboration Framework for Space Intelligence"
+        },
+        {
+          "organization": "IITP",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2016.04",
+          "to": "2017.02",
+          "project": "Development of IoT-based Trustworthy and Smart Home Community Framework"
+        },
+        {
+          "organization": "KAIST",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2016.04",
+          "to": "2016.12",
+          "project": "Study on Distributed Supercomputer Based on Cloud and Fog Computing"
+        },
+        {
+          "organization": "ADD",
+          "role": {
+            "ko": "학생연구원",
+            "en": "Student Researcher"
+          },
+          "from": "2016.04",
+          "to": "2016.06",
+          "project": "Mission-oriented Service Modeling and Coordination for System-of-Systems"
+        }
+      ]
+    },
+    {
+      "id": "teaching-experiences",
+      "title": {
+        "ko": "Teaching Experiences",
+        "en": "Teaching Experiences"
+      },
+      "type": "experience",
+      "items": [
+        {
+          "organization": {
+            "ko": "대전과학고등학교",
+            "en": "Daejeon Science High School"
+          },
+          "role": {
+            "ko": "강사",
+            "en": "Lecturer"
+          },
+          "from": "2026.09",
+          "to": "2027.01",
+          "course": {
+            "ko": "컴퓨팅 사고와 문제해결",
+            "en": "Computational Thinking and Problem Solving"
+          }
+        },
+        {
+          "organization": {
+            "ko": "대전과학고등학교",
+            "en": "Daejeon Science High School"
+          },
+          "role": {
+            "ko": "강사",
+            "en": "Lecturer"
+          },
+          "from": "2026.03",
+          "to": "2026.07",
+          "course": {
+            "ko": "고급 프로그래밍",
+            "en": "Advanced Programming"
+          }
+        },
+        {
+          "organization": {
+            "ko": "대전과학고등학교",
+            "en": "Daejeon Science High School"
+          },
+          "role": {
+            "ko": "강사",
+            "en": "Lecturer"
+          },
+          "from": "2026.03",
+          "to": "2026.07",
+          "course": {
+            "ko": "객체지향 프로그래밍",
+            "en": "Object-Oriented Programming"
+          }
+        },
+        {
+          "organization": "KAIST",
+          "role": {
+            "ko": "조교장",
+            "en": "Representative Head TA"
+          },
+          "from": "2020.03",
+          "to": "2024.02",
+          "course": {
+            "ko": "CS101 프로그래밍 기초",
+            "en": "CS101 Introduction to Programming"
+          },
+          "details": [
+            {
+              "ko": "강의·실습·프로그래밍 시험 전반 운영",
+              "en": "Organized classes, labs, and programming exams."
+            },
+            {
+              "ko": "코로나19에 대응한 온라인 강의·실습·프로그래밍 시험 운영",
+              "en": "Organized online classes, labs, and programming exams during the COVID-19 outbreak."
+            }
+          ]
+        },
+        {
+          "organization": "KAIST",
+          "role": {
+            "ko": "교육조교",
+            "en": "Head TA"
+          },
+          "from": "2018.09",
+          "to": "2020.02",
+          "course": {
+            "ko": "CS101 프로그래밍 기초",
+            "en": "CS101 Introduction to Programming"
+          },
+          "details": [
+            {
+              "ko": "주당 6시간 실습 진행",
+              "en": "Led lab sessions for six hours per week."
+            },
+            {
+              "ko": "시험 문제 출제",
+              "en": "Developed exam problems."
+            }
+          ]
+        },
+        {
+          "organization": "KAIST",
+          "role": {
+            "ko": "조교 (튜토리얼)",
+            "en": "TA (Tutorials)"
+          },
+          "from": "2018.03",
+          "to": "2018.08",
+          "course": {
+            "ko": "CS457 스마트 환경을 위한 요구공학",
+            "en": "CS457 Requirements Engineering for Smart Environments"
+          }
+        },
+        {
+          "organization": "KAIST",
+          "role": {
+            "ko": "조교 (오피스 아워)",
+            "en": "TA (Office Hour)"
+          },
+          "from": "2017.03",
+          "to": "2017.08",
+          "course": {
+            "ko": "CS220 프로그래밍의 이해",
+            "en": "CS220 Principles of Programming"
+          }
+        },
+        {
+          "organization": "KAIST",
+          "role": {
+            "ko": "조교 (튜토리얼)",
+            "en": "TA (Tutorials)"
+          },
+          "from": "2016.09",
+          "to": "2017.02",
+          "course": {
+            "ko": "CS459 서비스 컴퓨팅 개론",
+            "en": "CS459 Introduction to Services Computing"
+          }
+        },
+        {
+          "organization": "KAIST",
+          "role": {
+            "ko": "조교 (오피스 아워)",
+            "en": "TA (Office Hour)"
+          },
+          "from": "2016.03",
+          "to": "2016.08",
+          "course": {
+            "ko": "CS220 프로그래밍의 이해",
+            "en": "CS220 Principles of Programming"
+          }
+        }
+      ]
+    },
+    {
+      "id": "awards",
+      "title": {
+        "ko": "Awards",
+        "en": "Awards"
+      },
+      "type": "awards",
+      "items": [
+        {
+          "year": 2024,
+          "event": {
+            "ko": "KAIST 공과대학",
+            "en": "College of Engineering, KAIST"
+          },
+          "distinction": {
+            "ko": "박사학위논문상",
+            "en": "Ph.D. Dissertation Award"
+          },
+          "details": [
+            "Enhancing Physical Environment Interactive Services by Modeling and Learning Uncertain Factors"
+          ]
+        },
+        {
+          "year": 2024,
+          "event": {
+            "ko": "KAIST 전산학부",
+            "en": "School of Computing, KAIST"
+          },
+          "distinction": {
+            "ko": "감사패",
+            "en": "Recognition Plaque"
+          },
+          "details": [
+            {
+              "ko": "4년간 조교장으로서 KAIST 학생들의 프로그래밍 역량 향상에 기여",
+              "en": "Recognized for four years as representative head TA, contributing to the programming skills of KAIST students."
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "event": "KCSE",
+          "distinction": {
+            "ko": "우수논문상",
+            "en": "Best Paper Award"
+          },
+          "details": [
+            "Optimizing Perceived Quality of Services in Service-oriented V2X Software Environments"
+          ]
+        },
+        {
+          "year": 2018,
+          "event": "KSC",
+          "distinction": {
+            "ko": "우수발표상",
+            "en": "Best Presentation Award"
+          },
+          "details": [
+            "VR-based Simulation for Evaluating Service Quality of Visual Services in IoT Environments"
+          ]
+        },
+        {
+          "year": 2018,
+          "event": {
+            "ko": "KAIST 전산학부",
+            "en": "School of Computing, KAIST"
+          },
+          "distinction": {
+            "ko": "우수조교상",
+            "en": "Best TA Award"
+          },
+          "details": [
+            "CS101 Introduction to Programming"
+          ]
+        },
+        {
+          "year": 2016,
+          "event": "KCSE",
+          "distinction": {
+            "ko": "우수논문상",
+            "en": "Best Paper Award"
+          },
+          "details": [
+            "Dynamic Discovery of Geographically Cohesive Services in Internet of Things Environments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": {
+        "ko": "Skills",
+        "en": "Skills"
+      },
+      "type": "skills",
+      "items": [
+        {
+          "category": {
+            "ko": "연구",
+            "en": "Research"
+          },
+          "values": [
+            "Service Composition",
+            "Agentic Software Engineering",
+            "Reinforcement Learning",
+            "Internet of Things"
+          ]
+        },
+        {
+          "category": {
+            "ko": "프로그래밍",
+            "en": "Programming"
+          },
+          "values": [
+            "Python",
+            "C",
+            "C++",
+            "C#",
+            "Java",
+            "JavaScript"
+          ]
+        },
+        {
+          "category": {
+            "ko": "DevOps",
+            "en": "DevOps"
+          },
+          "values": [
+            "Amazon Web Services (AWS)",
+            "Docker",
+            "Git"
+          ]
+        },
+        {
+          "category": {
+            "ko": "백엔드",
+            "en": "Back-end"
+          },
+          "values": [
+            "Django",
+            "Flask",
+            "Spring Boot",
+            "REST API"
+          ]
+        },
+        {
+          "category": {
+            "ko": "프론트엔드",
+            "en": "Front-end"
+          },
+          "values": [
+            "HTML5",
+            "CSS"
+          ]
+        },
+        {
+          "category": {
+            "ko": "도구",
+            "en": "Tools"
+          },
+          "values": [
+            "LangChain",
+            "TensorFlow",
+            "Unity",
+            "Unreal Engine",
+            "Network Simulator 3 (NS3)"
+          ]
+        },
+        {
+          "category": {
+            "ko": "언어",
+            "en": "Languages"
+          },
+          "values": [
+            {
+              "ko": "한국어",
+              "en": "Korean"
+            },
+            {
+              "ko": "영어",
+              "en": "English"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extra",
+      "title": {
+        "ko": "Extra",
+        "en": "Extra"
+      },
+      "type": "awards",
+      "items": [
+        {
+          "year": 2010,
+          "event": {
+            "ko": "한국 천문학 올림피아드 (KAO)",
+            "en": "Korea Astronomy Olympiad (KAO)"
+          },
+          "distinction": {
+            "ko": "고등부 겨울학교 입소 대상자",
+            "en": "High School Winter School Subject"
+          }
+        },
+        {
+          "year": 2010,
+          "event": {
+            "ko": "한국 지구과학 올림피아드 (KESO)",
+            "en": "Korea Earth Science Olympiad (KESO)"
+          },
+          "distinction": {
+            "ko": "고등부 2차 면접 통과",
+            "en": "High School Pass Second Interview"
+          }
+        },
+        {
+          "year": 2009,
+          "event": {
+            "ko": "한국 지구과학 올림피아드 (KESO)",
+            "en": "Korea Earth Science Olympiad (KESO)"
+          },
+          "distinction": {
+            "ko": "중등부 은메달",
+            "en": "Middle School Silver Medal"
+          }
+        },
+        {
+          "year": 2008,
+          "event": {
+            "ko": "한국 지구과학 올림피아드 (KESO)",
+            "en": "Korea Earth Science Olympiad (KESO)"
+          },
+          "distinction": {
+            "ko": "중등부 동메달",
+            "en": "Middle School Bronze Medal"
+          }
+        },
+        {
+          "year": 2007,
+          "toYear": 2009,
+          "event": {
+            "ko": "충남대학교",
+            "en": "Chungnam National University"
+          },
+          "distinction": {
+            "ko": "과학영재교육원",
+            "en": "Science Education Institute for the Gifted"
+          }
+        },
+        {
+          "year": 2005,
+          "toYear": 2006,
+          "event": {
+            "ko": "대전동부교육지원청",
+            "en": "Daejeon Dongbu Office of Education"
+          },
+          "distinction": {
+            "ko": "영재교육원",
+            "en": "Education Center for Gifted"
+          }
+        }
+      ]
+    }
+  ]
+}

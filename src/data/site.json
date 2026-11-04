@@ -1,0 +1,137 @@
+{
+  "name": {
+    "ko": "백경덕",
+    "en": "KyeongDeok Baek"
+  },
+  "prefix": {
+    "ko": "공학박사 · 소프트웨어 공학 연구자",
+    "en": "Ph.D. · Software Engineering Researcher"
+  },
+  "title": "Blest",
+  "email": "blest215@kaist.ac.kr",
+  "github": "https://github.com/Blest215",
+  "linkedin": "https://www.linkedin.com/in/blest215/",
+  "analytics": {
+    "measurementId": ""
+  },
+  "description": {
+    "ko": "과학자가 되고 싶었던 공학자의 연구 이야기.",
+    "en": "Research story of an engineer who wanted to be a scientist."
+  },
+  "topics": [
+    "Human-centric Service computing",
+    "Agentic Software Engineering",
+    "Internet of Things"
+  ],
+  "brand": {
+    "mark": "b.",
+    "tagline": "RESEARCH & NOTES"
+  },
+  "resources": {
+    "homeBackground": "/resources/images/bonfire.jpg",
+    "profileImage": "",
+    "favicon": "/resources/icons/favicon-32x32.png"
+  },
+  "navigation": [
+    {
+      "route": "about",
+      "label": {
+        "ko": "소개",
+        "en": "About"
+      }
+    },
+    {
+      "route": "posts",
+      "label": {
+        "ko": "글",
+        "en": "Post"
+      }
+    },
+    {
+      "route": "cv",
+      "label": {
+        "ko": "CV",
+        "en": "CV"
+      }
+    }
+  ],
+  "copy": {
+    "ko": {
+      "homeEyebrow": "",
+      "researchInterests": "연구 관심사",
+      "recentWriting": "최근 글",
+      "allWriting": "전체 글",
+      "footer": "과학자가 되고 싶었던 공학자의 연구 이야기.",
+      "skipContent": "본문 바로가기",
+      "home": "홈",
+      "mainNavigation": "주 메뉴",
+      "language": "언어",
+      "englishPending": "영어 번역 검토 중",
+      "emptyPosts": "아직 공개된 글이 없습니다.",
+      "aboutEyebrow": "ABOUT",
+      "aboutTitle": "Climb High, Dive Deep, Look Wide.",
+      "aboutDescription": "물리 환경과 상호작용하는 서비스에서 에이전트 기반 소프트웨어 공학까지, 사람을 위한 소프트웨어와 AI 서비스를 연구합니다.",
+      "aboutParagraphs": [
+        "KAIST 전산학부에서 2024년 공학박사 학위를 받았으며, 현재 KAIST 정보전자연구소 박사후연구원으로 일하고 있습니다. 2026년부터는 대전과학고등학교 시간강사로 컴퓨팅 사고와 프로그래밍을 가르치고 있습니다.",
+        "박사과정에서는 불확실한 요인을 모델링하고 학습하여 물리 환경과 상호작용하는 서비스의 품질을 높이는 방법을 연구했습니다. 서비스 컴퓨팅, 사물인터넷, 강화학습을 바탕으로 서비스 선택과 조합을 다루었고, 이후에는 연합학습과 엣지·클라우드 환경의 서비스 운영으로 연구를 넓혀 왔습니다.",
+        "최근에는 에이전트 기반 소프트웨어 공학과 이기종 Physical AI 서비스의 협력에 관심을 두고 있습니다. AI 기반 서비스의 신뢰성을 높이기 위한 다중 에이전트 협력 검증 및 특화 연구를 수행하고 있으며, 이 블로그에 연구 과정과 논문, 구현하며 얻은 경험을 기록합니다."
+      ],
+      "viewCV": "CV 보기",
+      "postsEyebrow": "WRITING",
+      "postsTitle": "생각을 쌓아 가는 곳.",
+      "postsDescription": "연구 노트와 논문 리뷰, 직접 만들며 배운 것들.",
+      "cvTitle": "Curriculum Vitae",
+      "cvEyebrow": "CURRICULUM VITAE",
+      "cvPrint": "인쇄 / PDF 저장",
+      "cvSections": "CV 목차",
+      "minutesRead": "{minutes}분 읽기",
+      "translationPending": "영어 번역을 검토 중입니다. 검토가 끝나면 영어 버전이 공개됩니다.",
+      "legacyTranslation": "기존 블로그에서 가져온 영어 번역입니다. 새 검토는 아직 진행하지 않았습니다.",
+      "readOtherLanguage": "Read in English",
+      "notFoundTitle": "페이지를 찾을 수 없습니다.",
+      "notFoundDescription": "페이지가 이동했거나 삭제되었을 수 있습니다.",
+      "backHome": "홈으로"
+    },
+    "en": {
+      "homeEyebrow": "",
+      "researchInterests": "Research interests",
+      "recentWriting": "Recent writing",
+      "allWriting": "All writing",
+      "footer": "Research story of an engineer who wanted to be a scientist.",
+      "skipContent": "Skip to content",
+      "home": "Home",
+      "mainNavigation": "Main navigation",
+      "language": "Language",
+      "englishPending": "English translation pending review",
+      "emptyPosts": "No published posts yet.",
+      "aboutEyebrow": "ABOUT",
+      "aboutTitle": "Climb High, Dive Deep, Look Wide.",
+      "aboutDescription": "I study software and AI services for people, from services that interact with the physical environment to agentic software engineering.",
+      "aboutParagraphs": [
+        "I received my Ph.D. from the School of Computing at KAIST in 2024 and am currently a postdoctoral researcher at the KAIST Institute of Information Electronics. Since 2026, I have also been a part-time lecturer at Daejeon Science High School, teaching computational thinking and programming.",
+        "My doctoral research investigated how modeling and learning uncertain factors can improve services that interact with the physical environment. Drawing on service computing, the Internet of Things, and reinforcement learning, I studied service selection and composition and later expanded this work to federated learning and service operation in edge–cloud environments.",
+        "My current interests include agentic software engineering and cooperation among heterogeneous Physical AI services. I am working on multi-agent cooperative validation and specialization to improve the reliability of AI-based services. This blog collects notes on that research, papers, and lessons learned through implementation."
+      ],
+      "viewCV": "View curriculum vitae",
+      "postsEyebrow": "WRITING",
+      "postsTitle": "An open notebook.",
+      "postsDescription": "Research notes, paper reviews, and things learned while building.",
+      "cvTitle": "Curriculum Vitae",
+      "cvEyebrow": "CURRICULUM VITAE",
+      "cvPrint": "Print / Save PDF",
+      "cvSections": "CV sections",
+      "minutesRead": "{minutes} min read",
+      "translationPending": "The English translation will be published after review.",
+      "legacyTranslation": "Legacy English translation from the original blog. A fresh editorial review is pending.",
+      "readOtherLanguage": "한국어로 읽기",
+      "notFoundTitle": "Page not found.",
+      "notFoundDescription": "The page may have moved or been removed.",
+      "backHome": "Back home"
+    }
+  },
+  "contactLabels": {
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  }
+}

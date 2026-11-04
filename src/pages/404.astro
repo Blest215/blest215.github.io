@@ -1,0 +1,6 @@
+---
+import Shell from '../layouts/Shell.astro';
+import site from '../data/site.json';
+const copy = site.copy.ko;
+---
+<Shell title={copy.notFoundTitle} lang="ko" noindex><section class="page-heading"><p class="eyebrow">404</p><h1>{copy.notFoundTitle}</h1><p>{copy.notFoundDescription}</p><a class="button" href="/">{copy.backHome} →</a></section></Shell>
