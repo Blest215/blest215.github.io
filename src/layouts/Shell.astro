@@ -38,8 +38,10 @@ const analytics = import.meta.env.PROD && /^G-[A-Z0-9]+$/.test(ga);
       </nav>
       <div class="language-switch" aria-label={copy.language}>
         <a href={noindex ? '/' : english ? (alternate || '/') : Astro.url.pathname} lang="ko" aria-current={!english ? 'true' : undefined} data-event="language_switch" data-language="ko">KO</a>
-        <span aria-hidden="true">/</span>
-        {english || alternate ? <a href={english ? Astro.url.pathname : alternate} lang="en" aria-current={english ? 'true' : undefined} data-event="language_switch" data-language="en">EN</a> : <span class="unavailable" title={copy.englishPending}>EN</span>}
+        {(english || alternate) && <>
+          <span aria-hidden="true">/</span>
+          <a href={english ? Astro.url.pathname : alternate} lang="en" aria-current={english ? 'true' : undefined} data-event="language_switch" data-language="en">EN</a>
+        </>}
       </div>
     </header>
     <main id="main" class="wrap"><slot /></main>
