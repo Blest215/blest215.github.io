@@ -27,20 +27,20 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6.1.1
         with:
           version: '11.25.0'
           run_install: false
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
       - run: pnpm build
-      - uses: actions/upload-pages-artifact@v4
-        if: github.ref == 'refs/heads/source' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.deploy))
+      - uses: actions/upload-pages-artifact@v5.0.0
+        if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.deploy))
         with:
           path: dist
 
   deploy:
-    if: github.ref == 'refs/heads/source' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.deploy))
+    if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.deploy))
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -50,5 +50,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5.0.1
         id: deployment
