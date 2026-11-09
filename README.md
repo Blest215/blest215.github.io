@@ -56,6 +56,8 @@ pnpm preview
 - `resources.profileImage`: 홈·소개 페이지의 프로필 사진
 - `resources.favicon`: 사이트 아이콘
 
+CV 인쇄·PDF 저장 시 이름 옆에 `prefix`가 표시되고, 상단에 `email`, `homepage`, `github`, `linkedin`, `scholar` 링크가 출력됩니다. 링크 표시 이름은 `contactLabels`에서 관리합니다.
+
 배경과 프로필 경로를 빈 문자열로 두면 해당 이미지를 숨깁니다. 리소스 파일은 `public/resources/` 아래에 두고, URL에는 `public`을 제외한 `/resources/...` 경로를 사용합니다. 경로의 대소문자는 실제 파일과 일치해야 합니다.
 
 글 사진 예시:

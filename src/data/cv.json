@@ -10,18 +10,6 @@
       "items": [
         {
           "organization": {
-            "ko": "대전과학고등학교",
-            "en": "Daejeon Science High School"
-          },
-          "role": {
-            "ko": "시간강사",
-            "en": "Part-time Lecturer"
-          },
-          "from": "2026.03",
-          "to": null
-        },
-        {
-          "organization": {
             "ko": "한국과학기술원 (KAIST)",
             "en": "Korea Advanced Institute of Science and Technology (KAIST)"
           },
@@ -34,7 +22,21 @@
           "department": {
             "ko": "정보전자연구소",
             "en": "Institute of Information Electronics"
-          }
+          },
+          "featured": true
+        },
+        {
+          "organization": {
+            "ko": "대전과학고등학교",
+            "en": "Daejeon Science High School"
+          },
+          "role": {
+            "ko": "시간강사",
+            "en": "Part-time Lecturer"
+          },
+          "from": "2026.03",
+          "to": null,
+          "featured": true
         },
         {
           "organization": {
@@ -100,8 +102,16 @@
           "featured": true,
           "details": [
             {
-              "ko": "박사학위논문: Enhancing Physical Environment Interactive Services by Modeling and Learning Uncertain Factors",
+              "ko": "박사학위논문: 물리적 환경 상호작용 서비스 향상을 위한 불확실적 요소 모델링 및 학습 방법",
               "en": "Dissertation: Enhancing Physical Environment Interactive Services by Modeling and Learning Uncertain Factors"
+            },
+            {
+              "ko": "지도교수: 고인영",
+              "en": "Advisor: In-Young Ko"
+            },
+            {
+              "ko": "심사위원: 송준화, 백종문, 이의진, 이성주",
+              "en": "Committee member: Junehwa Song, Jongmoon Baik, Uichin Lee, Sung-Ju Lee"
             }
           ]
         },
@@ -179,7 +189,8 @@
           "impactFactor": {
             "year": 2024,
             "value": 3.5
-          }
+          },
+          "featured": true
         },
         {
           "group": "journals",
@@ -193,7 +204,8 @@
           "impactFactor": {
             "year": 2024,
             "value": 8.9
-          }
+          },
+          "featured": true
         },
         {
           "group": "journals",
@@ -235,7 +247,8 @@
           "impactFactor": {
             "year": 2022,
             "value": 10.6
-          }
+          },
+          "featured": true
         },
         {
           "group": "journals",
@@ -260,7 +273,8 @@
           },
           "title": "LANCE: Linguistic Agent Network for Cooperative Ensemble of Heterogeneous Physical AI Services",
           "venue": "IEEE ICWS",
-          "publicationType": "Regular"
+          "publicationType": "Regular",
+          "featured": true
         },
         {
           "group": "international",
@@ -359,7 +373,8 @@
           },
           "title": "Effect-driven Dynamic Selection of Physical Media for Visual IoT Services using Reinforcement Learning",
           "venue": "IEEE ICWS",
-          "publicationType": "Regular"
+          "publicationType": "Regular",
+          "featured": true
         },
         {
           "group": "international",
@@ -414,7 +429,8 @@
           },
           "title": "Spatially Cohesive Service Discovery and Dynamic Service Handover for Distributed IoT Environments",
           "venue": "ICWE",
-          "publicationType": "Regular"
+          "publicationType": "Regular",
+          "featured": true
         },
         {
           "group": "domestic",
@@ -761,7 +777,10 @@
           },
           "from": "2025.06",
           "to": "2028.05",
-          "project": "Multi-agent Cooperative Validation and Specialization for Enhancing Reliability of AI-based Services"
+          "project": {
+            "ko": "인공지능 기반 서비스의 신뢰성 향상을 위한 다중 에이전트 협동적 검증 및 특화",
+            "en": "Multi-agent Cooperative Validation and Specialization for Enhancing Reliability of AI-based Services"
+          }
         },
         {
           "organization": "NRF",
@@ -771,7 +790,10 @@
           },
           "from": "2025.09",
           "to": "2026.08",
-          "project": "Physical AI millimeter-wave Radar Module Development for Individual Environment-optimized AI Autonomous Vehicle Applications"
+          "project": {
+            "ko": "개별 환경 최적화된 AI 주행 자동차 어플리케이션을 위한 피지컬 AI 밀리미터파 레이더 모듈 개발",
+            "en": "Physical AI millimeter-wave Radar Module Development for Individual Environment-optimized AI Autonomous Vehicle Applications"
+          }
         },
         {
           "organization": "NRF",
@@ -781,17 +803,23 @@
           },
           "from": "2024.09",
           "to": "2025.08",
-          "project": "Methodology of Learning Uncertain Factors for Effective Provision of Ambient Interactive Services"
+          "project": {
+            "ko": "환경적 인터랙티브 서비스의 효과적인 제공을 위한 불확실 요소 학습 기법",
+            "en": "Methodology of Learning Uncertain Factors for Effective Provision of Ambient Interactive Services"
+          }
         },
         {
           "organization": "IITP",
           "role": {
-            "ko": "학생연구원·박사후연구원",
+            "ko": "학생연구원, 박사후연구원",
             "en": "Student Researcher, Postdoctoral Researcher"
           },
           "from": "2020.07",
           "to": "2025.05",
-          "project": "Development of Dependable and Highly Usable Big Data Platform, and Analysis and Prediction Services Technology in Edge Clouds"
+          "project": {
+            "ko": "엣지 클라우드에서 고신뢰 고사용성 빅데이터 플랫폼 및 분석 예측 서비스 기술 개발",
+            "en": "Development of Dependable and Highly Usable Big Data Platform, and Analysis and Prediction Services Technology in Edge Clouds"
+          }
         },
         {
           "organization": "KAIA",
@@ -801,7 +829,10 @@
           },
           "from": "2021.04",
           "to": "2022.12",
-          "project": "Research on an Edge Computing based AI Service Platform for Proactive Traffic Safety using Big Data"
+          "project": {
+            "ko": "엣지 컴퓨팅 기반 빅데이터 활용 선제적 교통안전 AI 서비스 플랫폼 기술 연구",
+            "en": "Research on an Edge Computing based AI Service Platform for Proactive Traffic Safety using Big Data"
+          }
         },
         {
           "organization": "NRF",
@@ -811,7 +842,10 @@
           },
           "from": "2019.09",
           "to": "2022.02",
-          "project": "Optimizing Effect Delivery and User Cognition of IoT Services Using Machine Learning and VR Technologies"
+          "project": {
+            "ko": "기계학습 및 VR 기술을 활용한 IoT 서비스 효과 전달 및 사용자 인지 최적화 방법",
+            "en": "Optimizing Effect Delivery and User Cognition of IoT Services Using Machine Learning and VR Technologies"
+          }
         },
         {
           "organization": "NRF",
@@ -821,7 +855,10 @@
           },
           "from": "2017.09",
           "to": "2020.12",
-          "project": "Development and On-the-fly Verification of System of Systems for Reliable and Intelligent CPS Applications"
+          "project": {
+            "ko": "신뢰적인 지능형 CPS 복합체계 개발 및 On-the-fly 검증기술",
+            "en": "Development and On-the-fly Verification of System of Systems for Reliable and Intelligent CPS Applications"
+          }
         },
         {
           "organization": "NRF",
@@ -831,7 +868,10 @@
           },
           "from": "2016.06",
           "to": "2019.05",
-          "project": "User-centric Service Provision Using Fog Computing in Widely Distributed Internet of Things Environments"
+          "project": {
+            "ko": "광역 분산 사물인터넷 환경에서의 포그 컴퓨팅 기반 사용자 중심 서비스 제공 방법",
+            "en": "User-centric Service Provision Using Fog Computing in Widely Distributed Internet of Things Environments"
+          }
         },
         {
           "organization": "IITP",
@@ -841,7 +881,10 @@
           },
           "from": "2017.04",
           "to": "2018.12",
-          "project": "Development of Autonomous IoT Collaboration Framework for Space Intelligence"
+          "project": {
+            "ko": "공간지능을 위한 IoT 사물간 자율협업 기술 개발",
+            "en": "Development of Autonomous IoT Collaboration Framework for Space Intelligence"
+          }
         },
         {
           "organization": "IITP",
@@ -851,7 +894,10 @@
           },
           "from": "2016.04",
           "to": "2017.02",
-          "project": "Development of IoT-based Trustworthy and Smart Home Community Framework"
+          "project": {
+            "ko": "IoT 기반 스마트 홈 커뮤니티의 안전하고 행복한 삶을 위한 소셜 및 소통 서비스",
+            "en": "Development of IoT-based Trustworthy and Smart Home Community Framework"
+          }
         },
         {
           "organization": "KAIST",
@@ -861,7 +907,10 @@
           },
           "from": "2016.04",
           "to": "2016.12",
-          "project": "Study on Distributed Supercomputer Based on Cloud and Fog Computing"
+          "project": {
+            "ko": "클라우드 및 포그 컴퓨팅 기반 분산형 슈퍼컴 제공기술 연구",
+            "en": "Study on Distributed Supercomputer Based on Cloud and Fog Computing"
+          }
         },
         {
           "organization": "ADD",
@@ -871,7 +920,10 @@
           },
           "from": "2016.04",
           "to": "2016.06",
-          "project": "Mission-oriented Service Modeling and Coordination for System-of-Systems"
+          "project": {
+            "ko": "복합무기체계 SW 공통운영 환경을 위한 임무중심 서비스 모델링 및 코디네이션 방법",
+            "en": "Mission-oriented Service Modeling and Coordination for System-of-Systems"
+          }
         }
       ]
     },
@@ -895,7 +947,7 @@
           "from": "2026.09",
           "to": "2027.01",
           "course": {
-            "ko": "컴퓨팅 사고와 문제해결",
+            "ko": "컴퓨팅 사고력과 문제해결",
             "en": "Computational Thinking and Problem Solving"
           }
         },
@@ -1050,7 +1102,10 @@
             "en": "Ph.D. Dissertation Award"
           },
           "details": [
-            "Enhancing Physical Environment Interactive Services by Modeling and Learning Uncertain Factors"
+            {
+              "ko": "환경적 인터랙티브 서비스의 효과적인 제공을 위한 불확실 요소 학습 기법",
+              "en": "Enhancing Physical Environment Interactive Services by Modeling and Learning Uncertain Factors"
+            }
           ]
         },
         {

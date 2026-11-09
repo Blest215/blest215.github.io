@@ -9,8 +9,10 @@
   },
   "title": "Blest",
   "email": "blest215@kaist.ac.kr",
+  "homepage": "https://blest215.github.io/",
   "github": "https://github.com/Blest215",
   "linkedin": "https://www.linkedin.com/in/blest215/",
+  "scholar": "https://scholar.google.com/citations?user=11160915161029134029",
   "analytics": {
     "measurementId": "G-8SRJ0R3XNS"
   },
@@ -83,6 +85,7 @@
       "cvEyebrow": "CURRICULUM VITAE",
       "cvPrint": "인쇄 / PDF 저장",
       "cvSections": "CV 목차",
+      "cvContacts": "연락처 및 프로필",
       "minutesRead": "{minutes}분 읽기",
       "readOtherLanguage": "Read in English",
       "notFoundTitle": "페이지를 찾을 수 없습니다.",
@@ -116,6 +119,7 @@
       "cvEyebrow": "CURRICULUM VITAE",
       "cvPrint": "Print / Save PDF",
       "cvSections": "CV sections",
+      "cvContacts": "Contact and profiles",
       "minutesRead": "{minutes} min read",
       "readOtherLanguage": "한국어로 읽기",
       "notFoundTitle": "Page not found.",
@@ -125,7 +129,9 @@
   },
   "contactLabels": {
     "email": "Email",
+    "homepage": "Website",
     "github": "GitHub",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "scholar": "Google Scholar"
   }
 }

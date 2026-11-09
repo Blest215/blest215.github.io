@@ -1,0 +1,9 @@
+---
+import site from '../data/site.json';
+import { cvContacts } from '../lib/contacts.mjs';
+const { lang } = Astro.props;
+const contacts = cvContacts(site);
+---
+<address class="cv-print-contacts" aria-label={site.copy[lang].cvContacts}>
+  <ul>{contacts.map(contact => <li><span>{site.contactLabels[contact.key]}:</span> <a href={contact.href}>{contact.value}</a></li>)}</ul>
+</address>

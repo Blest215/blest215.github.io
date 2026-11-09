@@ -2,6 +2,7 @@
 import Shell from '../layouts/Shell.astro';
 import PostList from '../components/PostList.astro';
 import CvSection from '../components/CvSection.astro';
+import CvPrintContacts from '../components/CvPrintContacts.astro';
 import site from '../data/site.json';
 import cv from '../data/cv.json';
 import { getPosts, href, dateLabel } from '../lib/content.mjs';
@@ -53,7 +54,8 @@ const description = kind === 'post' ? post.subtitle || post.title : site.descrip
   </>}
 
   {kind === 'cv' && <>
-    <header class="page-heading cv-heading"><div><p class="eyebrow">{copy.cvEyebrow}</p><h1>{site.name[lang]}</h1></div><button class="button print-button" data-print data-event="cv_print">{copy.cvPrint} ↗</button></header>
+    <header class="page-heading cv-heading"><div><p class="eyebrow">{copy.cvEyebrow}</p><h1>{site.name[lang]}<span class="cv-print-prefix">{site.prefix[lang]}</span></h1></div><button class="button print-button" data-print data-event="cv_print">{copy.cvPrint} ↗</button></header>
+    <CvPrintContacts lang={lang} />
     <div class="cv-layout"><nav class="cv-nav" aria-label={copy.cvSections}>{cv.sections.map(section => <a href={`#${section.id}`}>{cvText(section.title, lang)}</a>)}</nav><div>{cv.sections.map(section => <CvSection section={section} lang={lang} />)}</div></div>
   </>}
 

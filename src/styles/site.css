@@ -22,3 +22,15 @@
 @media print{.home-hero.has-background{background-image:none!important;color:#000;padding:0;min-height:auto}.home-hero.has-background .eyebrow,.home-hero.has-background .name-alternate,.home-hero.has-background .hero-intro,.home-hero.has-background .text-link{color:#000}.home-hero.has-background .hero-copy{text-shadow:none}}
 
 .cv-featured{font-weight:700}.cv-period{white-space:nowrap}
+
+.cv-print-prefix,.cv-print-contacts{display:none}
+@media print{
+  .cv-heading{break-after:avoid;break-inside:avoid;padding-bottom:10pt}
+  .cv-heading h1{font-size:22pt;line-height:1.35}
+  .cv-print-prefix{display:inline;margin-inline-start:12pt;font-size:10pt;font-weight:400;letter-spacing:0}
+  .cv-print-contacts{display:block;font-style:normal;margin:0 0 18pt;padding-bottom:12pt;border-bottom:1px solid #111;break-before:avoid;break-inside:avoid;break-after:avoid}
+  .cv-print-contacts ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:4pt 14pt;font-size:8pt;line-height:1.6}
+  .cv-print-contacts li{max-width:100%;overflow-wrap:anywhere}
+  .cv-print-contacts li>span{font-weight:600}
+  .cv-print-contacts a{color:#000;text-decoration:none}
+}
